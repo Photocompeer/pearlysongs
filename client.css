@@ -19,6 +19,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
             flex-wrap: wrap; /* Allow items to wrap on smaller screens */
         }
 
