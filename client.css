@@ -1,0 +1,366 @@
+        /* Universal box-sizing for easier layout calculations */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: sans-serif; /* Use a common font */
+            margin: 0; /* Remove default body margin */
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* --- Navigation Bar --- */
+        .main-nav {
+            background: #025037;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+        }
+
+        .main-nav .logo {
+            font-size: 1.8em; /* Responsive font size */
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .main-nav .logo span {
+            margin-left: 5px;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex; /* Flexbox for horizontal menu on larger screens */
+        }
+
+        .main-nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .main-nav ul li a:hover,
+        .main-nav ul li a.active {
+            background-color: #025037;;
+            border-radius: 5px;
+        }
+
+        .menu-icon {
+            font-size: 1.8em;
+            cursor: pointer;
+            display: none; /* Hide on larger screens */
+        }
+
+
+        /* --- Content Sections --- */
+        main {
+            padding: 20px;
+            max-width: 1200px; /* Max width for larger screens */
+            margin: 0 auto; /* Center the content */
+        }
+
+        .content-section,
+        .text-section,
+        .gallery-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #0056b3;
+            margin-top: 0;
+            font-size: 2em; /* Responsive font size */
+        }
+
+        /* Table of Contents/Content Links */
+        .content-links ul {
+            list-style: none;
+            padding: 0;
+            display: grid; /* Use CSS Grid for a flexible layout */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Auto-adjust columns */
+            gap: 10px; /* Space between grid items */
+        }
+
+        .content-links ul li {
+            background-color: #e0e0e0;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .content-links ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            display: block;
+        }
+
+        .content-links ul li a:hover {
+            color: #0056b3;
+        }
+
+        /* Text Content Sections */
+        .text-content p {
+            font-size: 1em;
+            color: #0a0a0a;
+            background-image: url(images/Gemini1.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* imgutils set to visible To UpLoad Images to FirebaseDatabase */
+                #imgutils {
+                    visibility: hidden;
+                    /* On smaller screens, you might want to make this more compact or hide it differently if it were visible */
+                    padding: 15px; /* Added some padding */
+                    text-align: center; /* Center content */
+                }
+                #imgutils input[type="text"],
+                #imgutils input[type="file"],
+                #imgutils button {
+                    width: 90%; /* Make inputs and buttons fill most of the width */
+                    max-width: 300px; /* Limit max width for larger screens */
+                    margin-bottom: 10px; /* Add spacing between elements */
+                    padding: 8px;
+                    font-size: 16px;
+                }
+                #myimage {
+                    max-width: 100%; /* Ensure preview image is responsive */
+                    height: auto;
+                    display: block; /* Remove extra space below image */
+                    margin: 10px auto; /* Center the preview image */
+                }
+
+
+                /* Gallery Container - Using Flexbox for responsiveness */
+                #galleryContainer {
+                    max-width: 1200px;
+                    max-height: fit-content;
+                    margin: 20px auto; /* Added vertical margin */
+                    padding: 10px; /* Adjusted padding */
+                    background-color: #f2f2f2;
+                    display: flex; /* Enable flexbox */
+                    flex-wrap: wrap; /* Allow items to wrap to the next line */
+                    justify-content: center; /* Center gallery items horizontally */
+                    gap: 15px; /* Space between gallery items */
+                    overflow: visible; /* Changed from auto, let content manage overflow */
+                }
+
+                .gallery {
+                    border: 1px solid #ccc;
+                    width: calc(33.333% - 20px); /* Three items per row with gap */
+                    margin: 0; /* Reset margin from original float layout */
+                    border: 5px solid rgb(246, 235, 235);
+                    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+                    flex-grow: 1; /* Allow items to grow to fill space */
+                    min-width: 280px; /* Minimum width for each gallery item before wrapping */
+                }
+
+                .gallery img {
+                    width: 100%;
+                    height: 200px; /* Set a fixed height or min-height for consistent gallery image sizes */
+                    object-fit: cover; /* Crop image to fit the container while maintaining aspect ratio */
+                    display: block; /* Remove extra space below image */
+                }
+
+                .gallery figcaption {
+                    padding: 15px;
+                    text-align: center;
+                    background-color: white;
+                    font-size: medium;
+                    font-style: normal;
+                }
+
+                .gallery img:hover {
+                    cursor: pointer;
+                    filter: brightness(77%);
+                }
+
+        /* Fullscreen Overlay for Images */
+        #fullscreenOverlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        #fullscreenImage {
+            max-width: 90%;
+            max-height: 80%;
+            object-fit: contain; /* Ensure the whole image is visible */
+        }
+
+        #fullscreenCaption {
+            color: white;
+            margin-top: 10px;
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        #closeFullscreen {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+        }
+
+        /* --- Media Queries for Responsiveness --- */
+
+        /* For screens smaller than 768px (common tablet portrait and mobile) */
+        @media (max-width: 768px) {
+            .main-nav {
+                flex-direction: column; /* Stack logo and menu vertically */
+                align-items: flex-start;
+            }
+
+            .main-nav ul {
+                width: 100%;
+                flex-direction: column; /* Stack menu items vertically */
+                display: none; /* Hide menu by default on small screens */
+                text-align: center;
+            }
+
+            .main-nav ul.show {
+                display: flex; /* Show menu when 'show' class is toggled */
+            }
+
+            .main-nav ul li a {
+                padding: 12px 0; /* More vertical padding */
+                border-bottom: 1px solid #444; /* Separator for menu items */
+            }
+
+            .main-nav ul li:last-child a {
+                border-bottom: none;
+            }
+
+            .menu-icon {
+                display: block; /* Show menu icon on small screens */
+                position: absolute; /* Position the icon relative to the nav */
+                right: 20px;
+                top: 15px;
+            }
+
+            .content-links ul {
+                grid-template-columns: 1fr; /* Single column for content links */
+            }
+
+            .image-upload-controls {
+                align-items: stretch; /* Stretch inputs to full width */
+            }
+
+            .image-upload-controls .button-group {
+                flex-direction: column; /* Stack buttons vertically */
+            }
+
+            .gallery-display-container {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Smaller grid items for mobile */
+            }
+
+            h1 {
+                font-size: 1.8em; /* Slightly smaller headings for mobile */
+            }
+        }
+
+        /* For screens even smaller than 480px (very small phones) */
+        @media (max-width: 480px) {
+            body {
+                font-size: 0.9em; /* Slightly smaller base font size */
+            }
+
+            .main-nav {
+                padding: 10px;
+            }
+
+            .main-nav .logo {
+                font-size: 1.5em;
+            }
+
+            .menu-icon {
+                font-size: 1.5em;
+                right: 10px;
+                top: 12px;
+            }
+
+            main {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.6em;
+            }
+
+            .gallery-display-container {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Even smaller grid items */
+            }
+        }
+
+        /* Optional: Back to top button styles if you add it to HTML */
+
+        #backtotop {
+            /* display:none;  */
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5em;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+        }
+
+        #backtotop.show {
+            display: flex;
+            visibility: visible; /* Show when scrolled down */
+        }
+
+        /* Footer */
+                footer {
+                    padding: 20px;
+                    font-size: 17px;
+                    font-weight: bold;
+                    text-align: center;
+                    background: #025037;
+                    color: white;
+                    font-family: Arial, Helvetica, sans-serif;
+                    letter-spacing: 1px;
+                }
+
+                #copyright {
+                    text-align: center;
+                    margin: 0.5px;
+                    font-style: oblique;
+                    color: white;
+                }

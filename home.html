@@ -1,0 +1,74 @@
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="author" content="Abaye John Kwaku">
+            <meta name="description" content="Biographies of some beautiful souls that graced the face of our beloved motherland Ghana.">
+            <title>Pearlysongs | Biographies of Ghanaian Personalities</title>
+            
+            <link rel="stylesheet" href="styles.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            
+            <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+            
+            <script>
+                $(document).ready(function(){
+                    $('#menu-icon').click(function(){
+                        $('nav ul').toggleClass('show'); // Target 'nav ul' for specificity
+                    });
+                });
+            </script>
+        </head>
+        <body>
+            <header>
+                <nav>
+                    <a href="home.html" class="logo" aria-label="Pearlysongs Home">
+                        <span role="img" aria-label="musical notes">&#128330;</span> <span>Pearlysongs</span>
+                    </a>
+                    <ul id="main-nav">
+                        <li><a class="active" href="home.html">Home</a></li>
+                        <li><a href="tel:+233207447161">Call: +233 (0) 207447161</a></li> 
+                    </ul>
+                    <button id="menu-icon" aria-label="Open mobile menu">
+                        <i class="fa-solid fa-bars"></i> 
+                    </button>
+                </nav>
+            </header>
+
+            <main>
+                <section class="container profile-grid">
+                    <article class="profile-card">
+                        <figure class="profile-image">
+                            <img src="images/dog.webp" alt="Profile picture of Carpenter John" title="Carpenter John" width="312" height="312"> 
+                        </figure>
+                        <div class="profile-link-wrapper flex-center flex-column">
+                            <a class="btn" href="carpenter john.html">Carpenter John</a>
+                        </div> 
+                    </article>
+
+                    <article class="profile-card">
+                        <figure class="profile-image">
+                            <img src="images/dog.webp" alt="Profile picture of Carpenter John" title="Carpenter John" width="312" height="312"> 
+                        </figure>
+                        <div class="profile-link-wrapper flex-center flex-column">
+                            <a class="btn" href="carpenter john.html">Carpenter John</a>
+                        </div>
+                    </article>
+
+                    <article class="profile-card">
+                        <figure class="profile-image">
+                            <img src="images/franklin 2.png" alt="Profile picture of Franklin" title="Franklin" width="312" height="312"> 
+                        </figure>
+                        <div class="profile-link-wrapper flex-center flex-column">
+                            <a class="btn" href="franklin.html">Franklin</a>
+                        </div>
+                    </article>
+                </section>
+            </main>
+
+            <footer>
+                <p>&copy; Pearlysongs 2025</p>
+            </footer>
+        </body>
+        </html>

@@ -1,0 +1,336 @@
+        /* Universal box-sizing for consistent layouts */
+        * {
+            text-decoration: none;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Ariel', sans-serif;
+            font-size: 15px;
+            line-height: 1.5;
+            /* Consider more subtle background for mobile performance and readability */
+            background-image: url(../images/Adinkra-nkyinkyim-bold-400w-280x280.png);
+            background-repeat: repeat; /* Changed to repeat for better mobile tiling */
+            background-position: center top; /* Adjusted for better mobile appearance */
+            background-size: 10%; /* Adjusted for better scaling on different screens */
+            margin-left: 0;
+        }
+
+        nav {
+            background: #025037;
+            height: 80px;
+            width: 100%;
+            /* Added display: flex for better alignment of logo and menu */
+            display: flex;
+            justify-content: space-between; /* Pushes logo to left, menu to right */
+            align-items: center; /* Vertically centers items */
+            padding: 0 20px; /* Added padding for smaller screens */
+            position: relative; /* For positioning the mobile menu */
+        }
+
+        label.logo {
+            font-size: 35px;
+            cursor: pointer;
+            line-height: 80px;
+            font-weight: bold;
+            color: white;
+            padding: 0 20px; /* Adjusted padding for responsiveness */
+        }
+
+        nav ul {
+            float: right; /* Keep float for larger screens */
+            margin-right: 20px; /* Adjusted margin */
+            display: flex; /* Use flexbox for desktop navigation items */
+        }
+
+        nav li {
+            display: inline-block;
+            margin: 0 8px; /* Adjusted margin for horizontal spacing */
+            line-height: 80px;
+        }
+
+        nav a {
+            color: white;
+            font-size: 18px;
+            text-transform: uppercase;
+            border: 1px solid transparent;
+            padding: 7px 10px;
+            border-radius: 3px; /* Changed from border: 3px; to border-radius for aesthetics */
+        }
+
+        a.active,
+        a:hover {
+            border: 1px solid white;
+            transition: .5s;
+        }
+
+        nav #icon {
+            color: white;
+            font-size: 30px;
+            line-height: 80px;
+            float: right;
+            margin-right: 20px; /* Adjusted margin */
+            cursor: pointer;
+            display: none; /* Hidden by default on larger screens */
+        }
+
+        /* Media Queries for Responsiveness */
+
+        @media (max-width: 909px) { /* This breakpoint handles the transition to mobile menu */
+            label.logo {
+                font-size: 28px; /* Slightly smaller logo on smaller screens */
+                padding-left: 20px;
+            }
+
+            nav #icon {
+                display: block; /* Show the hamburger icon */
+            }
+
+            nav ul {
+                position: fixed;
+                width: 100%;
+                height: 100vh;
+                background: #2f3640;
+                top: 80px; /* Position below the nav bar */
+                left: -100%; /* Initially hide the menu off-screen */
+                text-align: center;
+                transition: all .5s;
+                flex-direction: column; /* Stack menu items vertically */
+                justify-content: flex-start; /* Align items to the top */
+                padding-top: 20px; /* Add some padding at the top */
+            }
+
+            nav ul.show {
+                left: 0; /* Slide the menu in from the left */
+            }
+
+            nav li {
+                display: block;
+                margin: 20px 0; /* Adjusted vertical margin for stacked items */
+                line-height: normal; /* Reset line-height */
+            }
+
+            nav a {
+                font-size: 20px;
+                padding: 10px 0; /* Increase clickable area */
+                display: block; /* Make links take full width for easier tapping */
+            }
+
+            a.active,
+            a:hover {
+                border: none;
+                color: #3498db;
+            }
+
+            /* Adjust body background for very small screens if needed */
+            body {
+                background-size: 20%; /* Larger background pattern for smaller screens */
+                background-position: center;
+            }
+        }
+
+        /* imgutils set to visible To UpLoad Images to FirebaseDatabase */
+        #imgutils {
+            visibility: hidden;
+            /* On smaller screens, you might want to make this more compact or hide it differently if it were visible */
+            padding: 15px; /* Added some padding */
+            text-align: center; /* Center content */
+        }
+        #imgutils input[type="text"],
+        #imgutils input[type="file"],
+        #imgutils button {
+            width: 90%; /* Make inputs and buttons fill most of the width */
+            max-width: 300px; /* Limit max width for larger screens */
+            margin-bottom: 10px; /* Add spacing between elements */
+            padding: 8px;
+            font-size: 16px;
+        }
+        #myimage {
+            max-width: 100%; /* Ensure preview image is responsive */
+            height: auto;
+            display: block; /* Remove extra space below image */
+            margin: 10px auto; /* Center the preview image */
+        }
+
+
+        /* Gallery Container - Using Flexbox for responsiveness */
+        #galleryContainer {
+            max-width: 1200px;
+            max-height: fit-content;
+            margin: 20px auto; /* Added vertical margin */
+            padding: 10px; /* Adjusted padding */
+            background-color: #f2f2f2;
+            display: flex; /* Enable flexbox */
+            flex-wrap: wrap; /* Allow items to wrap to the next line */
+            justify-content: center; /* Center gallery items horizontally */
+            gap: 15px; /* Space between gallery items */
+            overflow: visible; /* Changed from auto, let content manage overflow */
+        }
+
+        .gallery {
+            border: 1px solid #ccc;
+            width: calc(33.333% - 20px); /* Three items per row with gap */
+            margin: 0; /* Reset margin from original float layout */
+            border: 5px solid rgb(246, 235, 235);
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+            flex-grow: 1; /* Allow items to grow to fill space */
+            min-width: 280px; /* Minimum width for each gallery item before wrapping */
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 200px; /* Set a fixed height or min-height for consistent gallery image sizes */
+            object-fit: cover; /* Crop image to fit the container while maintaining aspect ratio */
+            display: block; /* Remove extra space below image */
+        }
+
+        .gallery figcaption {
+            padding: 15px;
+            text-align: center;
+            background-color: white;
+            font-size: medium;
+            font-style: normal;
+        }
+
+        .gallery img:hover {
+            cursor: pointer;
+            filter: brightness(77%);
+        }
+
+        /* Back to Top Button */
+        #backtotop {
+            right: 20px; /* Adjusted for smaller screens */
+            bottom: 20px; /* Adjusted for smaller screens */
+            width: 50px;
+            height: 50px;
+            position: fixed;
+            border-radius: 50%;
+            background: #e62739;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+            color: #ffff;
+            outline: none;
+            cursor: pointer;
+            border: none;
+            display: flex; /* Use flexbox for centering icon */
+            justify-content: center;
+            align-items: center;
+        }
+
+        #backtotop:active {
+            background: #cc2333;
+        }
+
+        /* Contact Info (rsvp) */
+        .rsvp {
+            font-size: 1.2rem; /* Slightly smaller font for mobile */
+            text-align: center;
+            margin: 1rem;
+            text-shadow: 2px 2px 5px #fc0303;
+            color: #0b0b0b;
+            font-weight: bold;
+            padding: 10px; /* Added padding */
+            visibility: hidden;
+        }
+
+        .rsvp h5 {
+            line-height: 1.6; /* Improve readability for contact details */
+        }
+
+        /* Footer */
+        footer {
+            padding: 20px;
+            font-size: 17px;
+            font-weight: bold;
+            text-align: center;
+            background: #025037;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            letter-spacing: 1px;
+        }
+
+        #copyright {
+            text-align: center;
+            margin: 0.5px;
+            font-style: oblique;
+            color: white;
+        }
+
+        /* Full-screen overlay styles */
+        #fullscreenOverlay {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            background-color: rgba(252, 249, 249, 0.9); /* White with opacity */
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+            flex-direction: column; /* Stack image and caption vertically */
+            border: none; /* Remove border for cleaner look */
+            padding: 20px; /* Add some padding inside the overlay */
+            box-sizing: border-box; /* Include padding in sizing */
+        }
+
+        #fullscreenImage {
+            max-width: 95%; /* Increased max-width for better mobile viewing */
+            max-height: 80vh; /* Use viewport height for better scaling */
+            display: block;
+            margin: 0 auto 10px auto; /* Center the image with space below */
+            object-fit: contain;
+        }
+
+        #fullscreenCaption {
+            color: black;
+            font-size: 1.2rem; /* Adjusted font size for mobile */
+            padding: 10px 0;
+            text-align: center;
+            max-width: 90%;
+            word-wrap: break-word;
+        }
+
+        #closeFullscreen {
+            position: absolute;
+            top: 15px; /* Adjusted position */
+            right: 15px; /* Adjusted position */
+            color: #0b0000;
+            font-size: 35px; /* Slightly smaller close button */
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        #closeFullscreen:hover,
+        #closeFullscreen:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+
+        /* Additional Media Queries for more granular control */
+        @media (max-width: 768px) {
+            .gallery {
+                width: calc(50% - 15px); /* Two items per row on tablets */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .gallery {
+                width: 90%; /* Single item per row on smaller phones */
+                margin: 10px auto; /* Center the single item */
+            }
+
+            label.logo {
+                font-size: 24px;
+                padding-left: 10px;
+            }
+
+            nav #icon {
+                margin-right: 10px;
+            }
+        }
