@@ -1,5 +1,5 @@
-            
-            <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,272 +8,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pearlysongs</title>
     <link rel="stylesheet" href="client.css">
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <script>
-        $(document).ready(function(){
-            $('#icon').click(function(){
-                $('nav ul').toggleClass('show'); // Target the ul within the nav for clarity
-            });
-        });
-    </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 </head>
 <body>
 
-    <nav class="main-nav">
-        <label class="logo">&#128330; <span>pearlysongs</span></label>
-        <ul>
-            <li><a class="active" href="home.html">Home</a></li>
-            <li><a href="tel:+233207447161">Call: +233 (0) 207447161</a></li>
+    <header>
+        <nav class="main-nav" aria-label="Main navigation">
+            <label class="logo">&#128330; <span>pearlysongs</span></label>
+            <input type="checkbox" id="menu-toggle" aria-controls="main-menu" aria-expanded="false" class="hidden-checkbox">
+            <label for="menu-toggle" class="menu-icon" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+            <ul id="main-menu" class="nav-links">
+                <li><a class="active" href="home.html">Home</a></li>
+                <li><a href="tel:+233207447161">Call: +233 (0) 207447161</a></li>
             </ul>
-        <label id="icon">
-                <i class="fa-solid fa-bars"></i>            
-         </label>
-    </nav>
+        </nav>
+    </header>
 
     <main>
-        <section class="content-section">
-            <h1>CONTENT.</h1>
-            <div class="wrapper content-links">
-                <ul>
-                    <li><a href="#forward">Forward</a></li>
-                    <li><a href="#program">Program line up</a></li>
-                    <li><a href="#biography">Biography</a></li>
-                    <li><a href="#wandh">Tribute by Wife/Husband</a></li>
-                    <li><a href="#children">Tribute by Children</a></li>
-                    <li><a href="#B&S">Tribute by Brothers & Sisters</a></li>
-                    <li><a href="#workplace">Tribute from Workplace</a></li>
-                    <li><a href="#grandchildren">Tribute from Grandchildren</a></li>
-                    <li><a href="#songs">Songs and Hymns</a></li>
-                    <li><a href="#colleagues">Tribute from HESSPPAG members</a></li>
-                    <li><a href="#acknowledgement">Acknowledgement</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="forward-section" class="text-section">
-            <h1>FORWARD</h1>
-            <div id="forward" class="text-content">
-                <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
-                    Suscipit ab aut aliquam dolor rem accusamus laborum error illum.
-                    At tenetur iusto nisi a aspernatur quos molestiae voluptate quam!
-                    Dolores, sapiente! Repellat rerum rem eos odio, nulla dicta sunt?
-                    Numquam, architecto officiis repellat similique animi provident voluptatibus unde! Quidem?
-                    Sit voluptate temporibus, nam unde corporis nisi rerum at sint.
-                    Sint necessitatibus nemo nisi ea voluptatum est consequatur nesciunt eaque?
-                    Voluptatem ut suscipit unde ducimus aliquam molestiae nemo dolores rerum!
-                    Fuga nihil laboriosam nostrum sunt itaque corrupti facilis quia ut?
-                    Sapiente omnis voluptatibus cumque eius nihil odit reprehenderit deleniti ratione?
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
-                    rem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
-                    Suscipit ab aut aliquam dolor rem accusamus laborum error illum.
-                    At tenetur iusto nisi a aspernatur quos molestiae voluptate quam!
-                    Dolores, sapiente! Repellat rerum rem eos odio, nulla dicta sunt?
-                    Numquam, architecto officiis repellat similique animi provident voluptatibus unde! Quidem?
-                    Sit voluptate temporibus, nam unde corporis nisi rerum at sint.
-                    Sint necessitatibus nemo nisi ea voluptatum est consequatur nesciunt eaque?
-                    Voluptatem ut suscipit unde ducimus aliquam molestiae nemo dolores rerum!
-                    Fuga nihil laboriosam nostrum sunt itaque corrupti facilis quia ut?
-                    Sapiente omnis voluptatibus cumque eius nihil odit reprehenderit deleniti ratione?
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
-                    rem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
-                    Suscipit ab aut aliquam dolor rem accusamus laborum error illum.
-                    At tenetur iusto nisi a aspernatur quos molestiae voluptate quam!
-                    Dolores, sapiente! Repellat rerum rem eos odio, nulla dicta sunt?
-                    Numquam, architecto officiis repellat similique animi provident voluptatibus unde! Quidem?
-                    Sit voluptate temporibus, nam unde corporis nisi rerum at sint.
-                    Sint necessitatibus nemo nisi ea voluptatum est consequatur nesciunt eaque?
-                    Voluptatem ut suscipit unde ducimus aliquam molestiae nemo dolores rerum!
-                    Fuga nihil laboriosam nostrum sunt itaque corrupti facilis quia ut?
-                    Sapiente omnis voluptatibus cumque eius nihil odit reprehenderit deleniti ratione?
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
-                </p>
-            </div>
-        </section>
-
-        <section id="program-section" class="text-section">
-            <h1>PROGRAM LINE UP</h1>
-            <div id="program" class="text-content">
-                <p>
-                    rem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
-                    Suscipit ab aut aliquam dolor rem accusamus laborum error illum.
-                    At tenetur iusto nisi a aspernatur quos molestiae voluptate quam!
-                    Dolores, sapiente! Repellat rerum rem eos odio, nulla dicta sunt?
-                    Numquam, architecto officiis repellat similique animi provident voluptatibus unde! Quidem?
-                    Sit voluptate temporibus, nam unde corporis nisi rerum at sint.
-                    Sint necessitatibus nemo nisi ea voluptatum est consequatur nesciunt eaque?
-                    Voluptatem ut suscipit unde ducimus aliquam molestiae nemo dolores rerum!
-                    Fuga nihil laboriosam nostrum sunt itaque corrupti facilis quia ut?
-                    Sapiente omnis voluptatibus cumque eius nihil odit reprehenderit deleniti ratione?
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
-                </p>
-            </div>
-        </section>
-
-        <section id="biography-section" class="text-section">
-            <h1>BIOGRAPHY</h1>
-            <div id="biography" class="text-content">
-                <p>
-                    rem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
-                    Suscipit ab aut aliquam dolor rem accusamus laborum error illum.
-                    At tenetur iusto nisi a aspernatur quos molestiae voluptate quam!
-                    Dolores, sapiente! Repellat rerum rem eos odio, nulla dicta sunt?
-                    Numquam, architecto officiis repellat similique animi provident voluptatibus unde! Quidem?
-                    Sit voluptate temporibus, nam unde corporis nisi rerum at sint.
-                    Sint necessitatibus nemo nisi ea voluptatum est consequatur nesciunt eaque?
-                    Voluptatem ut suscipit unde ducimus aliquam molestiae nemo dolores rerum!
-                    Fuga nihil laboriosam nostrum sunt itaque corrupti facilis quia ut?
-                    Sapiente omnis voluptatibus cumque eius nihil odit reprehenderit deleniti ratione?
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
-                </p>
-            </div>
-        </section>
-
-        <section id="wife-husband-tribute-section" class="text-section">
-            <h1>TRIBUTES FROM WIFE/HUSBAND</h1>
-            <div id="wandh" class="text-content">
-                <p>
-                    rem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
-                    Suscipit ab aut aliquam dolor rem accusamus laborum error illum.
-                    At tenetur iusto nisi a aspernatur quos molestiae voluptate quam!
-                    Dolores, sapiente! Repellat rerum rem eos odio, nulla dicta sunt?
-                    Numquam, architecto officiis repellat similique animi provident voluptatibus unde! Quidem?
-                    Sit voluptate temporibus, nam unde corporis nisi rerum at sint.
-                    Sint necessitatibus nemo nisi ea voluptatum est consequatur nesciunt eaque?
-                    Voluptatem ut suscipit unde ducimus aliquam molestiae nemo dolores rerum!
-                    Fuga nihil laboriosam nostrum sunt itaque corrupti facilis quia ut?
-                    Sapiente omnis voluptatibus cumque eius nihil odit reprehenderit deleniti ratione?
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
-                </p>
-            </div>
-        </section>
-
-        <section id="children-tribute-section" class="text-section">
-            <h1>TRIBUTES FROM CHILDREN</h1>
-            <div id="children" class="text-content">
-                <p>
-                    rem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
-                    Suscipit ab aut aliquam dolor rem accusamus laborum error illum.
-                    At tenetur iusto nisi a aspernatur quos molestiae voluptate quam!
-                    Dolores, sapiente! Repellat rerum rem eos odio, nulla dicta sunt?
-                    Numquam, architecto officiis repellat similique animi provident voluptatibus unde! Quidem?
-                    Sit voluptate temporibus, nam unde corporis nisi rerum at sint.
-                    Sint necessitatibus nemo nisi ea voluptatum est consequatur nesciunt eaque?
-                    Voluptatem ut suscipit unde ducimus aliquam molestiae nemo dolores rerum!
-                    Fuga nihil laboriosam nostrum sunt itaque corrupti facilis quia ut?
-                    Sapiente omnis voluptatibus cumque eius nihil odit reprehenderit deleniti ratione?
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
-                </p>
-            </div>
-        </section>
-
-        <section id="brothers-sisters-tribute-section" class="text-section">
-            <h1>TRIBUTE BY BROTHERS & SISTERS</h1>
-            <div id="B&S" class="text-content">
-                <p>
-                    rem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
-                    Suscipit ab aut aliquam dolor rem accusamus laborum error illum.
-                    At tenetur iusto nisi a aspernatur quos molestiae voluptate quam!
-                    Dolores, sapiente! Repellat rerum rem eos odio, nulla dicta sunt?
-                    Numquam, architecto officiis repellat similique animi provident voluptatibus unde! Quidem?
-                    Sit voluptate temporibus, nam unde corporis nisi rerum at sint.
-                    Sint necessitatibus nemo nisi ea voluptatum est consequatur nesciunt eaque?
-                    Voluptatem ut suscipit unde ducimus aliquam molestiae nemo dolores rerum!
-                    Fuga nihil laboriosam nostrum sunt itaque corrupti facilis quia ut?
-                    Sapiente omnis voluptatibus cumque eius nihil odit reprehenderit deleniti ratione?
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
-                </p>
-            </div>
-        </section>
-
-        <section id="workplace-tribute-section" class="text-section">
-            <h1>TRIBUTES FROM GHS</h1>
-            <div id="workplace" class="text-content">
-                <p>
-                    rem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
-                    Suscipit ab aut aliquam dolor rem accusamus laborum error illum.
-                    At tenetur iusto nisi a aspernatur quos molestiae voluptate quam!
-                    Dolores, sapiente! Repellat rerum rem eos odio, nulla dicta sunt?
-                    Numquam, architecto officiis repellat similique animi provident voluptatibus unde! Quidem?
-                    Sit voluptate temporibus, nam unde corporis nisi rerum at sint.
-                    Sint necessitatibus nemo nisi ea voluptatum est consequatur nesciunt eaque?
-                    Voluptatem ut suscipit unde ducimus aliquam molestiae nemo dolores rerum!
-                    Fuga nihil laboriosam nostrum sunt itaque corrupti facilis quia ut?
-                    Sapiente omnis voluptatibus cumque eius nihil odit reprehenderit deleniti ratione?
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
-                </p>
-            </div>
-        </section>
-
-        <section id="hesspg-tribute-section" class="text-section">
-            <h1>TRIBUTES FROM HESSPG</h1>
-            <div id="colleagues" class="text-content">
-                <p>
-                    rem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
-                    Suscipit ab aut aliquam dolor rem accusamus laborum error illum.
-                    At tenetur iusto nisi a aspernatur quos molestiae voluptate quam!
-                    Dolores, sapiente! Repellat rerum rem eos odio, nulla dicta sunt?
-                    Numquam, architecto officiis repellat similique animi provident voluptatibus unde! Quidem?
-                    Sit voluptate temporibus, nam unde corporis nisi rerum at sint.
-                    Sint necessitatibus nemo nisi ea voluptatum est consequatur nesciunt eaque?
-                    Voluptatem ut suscipit unde ducimus aliquam molestiae nemo dolores rerum!
-                    Fuga nihil laboriosam nostrum sunt itaque corrupti facilis quia ut?
-                    Sapiente omnis voluptatibus cumque eius nihil odit reprehenderit deleniti ratione?
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
-                </p>
-            </div>
-        </section>
-
-        <section id="grandchildren-tribute-section" class="text-section">
-            <h1>TRIBUTES FROM GRANDCHILDREN</h1>
-            <div id="grandchildren" class="text-content">
-                <p>
-                    rem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
-                    Suscipit ab aut aliquam dolor rem accusamus laborum error illum.
-                    At tenetur iusto nisi a aspernatur quos molestiae voluptate quam!
-                    Dolores, sapiente! Repellat rerum rem eos odio, nulla dicta sunt?
-                    Numquam, architecto officiis repellat similique animi provident voluptatibus unde! Quidem?
-                    Sit voluptate temporibus, nam unde corporis nisi rerum at sint.
-                    Sint necessitatibus nemo nisi ea voluptatum est consequatur nesciunt eaque?
-                    Voluptatem ut suscipit unde ducimus aliquam molestiae nemo dolores rerum!
-                    Fuga nihil laboriosam nostrum sunt itaque corrupti facilis quia ut?
-                    Sapiente omnis voluptatibus cumque eius nihil odit reprehenderit deleniti ratione?
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
-                </p>
-            </div>
-        </section>
-
-        <section id="gallery">
-
-                <section id="imgutils">
-                    Image Name <input id="namebox" type="text" placeholder="Enter image caption"> <br><br>
-                    <input type="file" id="imageUploadInput" accept="image/*">
-                    <img id="myimage" src="" alt="Selected image preview">
-                    <label id="UpProgress"></label> <br><br>
-                    <button id="select">Select Img</button>
-                    <button id='upload'>Upload Img</button>
-                </section>
-
-                <div id="galleryContainer" class="gallery-container">
-                    <div id="gallery">
-                    <p id="loadingMessage">If loading takes too long, check your internet settings.</p>
-                </div>
-                <div id="fullscreenOverlay">
-                    <span id="closeFullscreen">&times;</span>
-                    <img id="fullscreenImage" src="" alt="Full screen image">
-                    <div id="fullscreenCaption"></div>
-                </div>
-                </div>
+        <section id="home" class="hero-section">
+            <h1>In Loving Memmory</h1>
+            <p>Carpenter John</p>
             </section>
 
-        <section id="songs-hymns-section" class="text-section">
-            <h1>Songs and Hymns</h1>
-            <div id="songs" class="text-content">
+        <section class="content-navigation-section" aria-labelledby="content-heading">
+            <h1 id="content-heading">CONTENTS</h1>
+            <nav class="content-links-nav" aria-label="Page content navigation">
+                <ul>
+                    <li><a href="#forward-section">Forward</a></li>
+                    <li><a href="#program-section">Program Line Up</a></li>
+                    <li><a href="#biography-section">Biography</a></li>
+                    <li><a href="#wife-husband-tribute-section">Tribute by Wife/Husband</a></li>
+                    <li><a href="#children-tribute-section">Tribute by Children</a></li>
+                    <li><a href="#brothers-sisters-tribute-section">Tribute by Brothers & Sisters</a></li>
+                    <li><a href="#workplace-tribute-section">Tribute from GHS</a></li>
+                    <li><a href="#hesspg-tribute-section">Tribute from HESSPPAG members</a></li>
+                    <li><a href="#grandchildren-tribute-section">Tribute from Grandchildren</a></li>
+                    <li><a href="#songs-hymns-section">Songs and Hymns</a></li>
+                    <li><a href="#acknowledgement-section">Acknowledgement</a></li>
+                    <li><a href="#gallery-section">Gallery</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <hr>
+
+        <section id="forward-section" class="text-section">
+            <h2>FORWARD</h2>
+            <div class="text-content">
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
+                    Suscipit ab aut aliquam dolor rem accusamus laborum error illum.
+                    At tenetur iusto nisi a aspernatur quos molestiae voluptate quam!
+                    Dolores, sapiente! Repellat rerum rem eos odio, nulla dicta sunt?
+                    Numquam, architecto officiis repellat similique animi provident voluptatibus unde! Quidem?
+                    Sit voluptate temporibus, nam unde corporis nisi rerum at sint.
+                    Sint necessitatibus nemo nisi ea voluptatum est consequatur nesciunt eaque?
+                    Voluptatem ut suscipit unde ducimus aliquam molestiae nemo dolores rerum!
+                    Fuga nihil laboriosam nostrum sunt itaque corrupti facilis quia ut?
+                    Sapiente omnis voluptatibus cumque eius nihil odit reprehenderit deleniti ratione?
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
+                    rem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
+                    Suscipit ab aut aliquam dolor rem accusamus laborum error illum.
+                    At tenetur iusto nisi a aspernatur quos molestiae voluptate quam!
+                    Dolores, sapiente! Repellat rerum rem eos odio, nulla dicta sunt?
+                    Numquam, architecto officiis repellat similique animi provident voluptatibus unde! Quidem?
+                    Sit voluptate temporibus, nam unde corporis nisi rerum at sint.
+                    Sint necessitatibus nemo nisi ea voluptatum est consequatur nesciunt eaque?
+                    Voluptatem ut suscipit unde ducimus aliquam molestiae nemo dolores rerum!
+                    Fuga nihil laboriosam nostrum sunt itaque corrupti facilis quia ut?
+                    Sapiente omnis voluptatibus cumque eius nihil odit reprehenderit deleniti ratione?
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
+                    rem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
+                    Suscipit ab aut aliquam dolor rem accusamus laborum error illum.
+                    At tenetur iusto nisi a aspernatur quos molestiae voluptate quam!
+                    Dolores, sapiente! Repellat rerum rem eos odio, nulla dicta sunt?
+                    Numquam, architecto officiis repellat similique animi provident voluptatibus unde! Quidem?
+                    Sit voluptate temporibus, nam unde corporis nisi rerum at sint.
+                    Sint necessitatibus nemo nisi ea voluptatum est consequatur nesciunt eaque?
+                    Voluptatem ut suscipit unde ducimus aliquam molestiae nemo dolores rerum!
+                    Fuga nihil laboriosam nostrum sunt itaque corrupti facilis quia ut?
+                    Sapiente omnis voluptatibus cumque eius nihil odit reprehenderit deleniti ratione?
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
+                </p>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="program-section" class="text-section">
+            <h2>PROGRAM LINE UP</h2>
+            <div class="text-content">
                 <p>
                     rem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
                     Suscipit ab aut aliquam dolor rem accusamus laborum error illum.
@@ -290,9 +118,11 @@
             </div>
         </section>
 
-        <section id="acknowledgement-section" class="text-section">
-            <h1>ACKNOWLEDGEMENT</h1>
-            <div id="acknowledgement" class="text-content">
+        <hr>
+
+        <section id="biography-section" class="text-section">
+            <h2>BIOGRAPHY</h2>
+            <div class="text-content">
                 <p>
                     rem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
                     Suscipit ab aut aliquam dolor rem accusamus laborum error illum.
@@ -306,25 +136,234 @@
                     Sapiente omnis voluptatibus cumque eius nihil odit reprehenderit deleniti ratione?
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
                 </p>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="wife-husband-tribute-section" class="text-section">
+            <h2>TRIBUTES FROM WIFE/HUSBAND</h2>
+            <div class="text-content">
+                <p>
+                    rem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
+                    Suscipit ab aut aliquam dolor rem accusamus laborum error illum.
+                    At tenetur iusto nisi a aspernatur quos molestiae voluptate quam!
+                    Dolores, sapiente! Repellat rerum rem eos odio, nulla dicta sunt?
+                    Numquam, architecto officiis repellat similique animi provident voluptatibus unde! Quidem?
+                    Sit voluptate temporibus, nam unde corporis nisi rerum at sint.
+                    Sint necessitatibus nemo nisi ea voluptatum est consequatur nesciunt eaque?
+                    Voluptatem ut suscipit unde ducimus aliquam molestiae nemo dolores rerum!
+                    Fuga nihil laboriosam nostrum sunt itaque corrupti facilis quia ut?
+                    Sapiente omnis voluptatibus cumque eius nihil odit reprehenderit deleniti ratione?
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
+                </p>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="children-tribute-section" class="text-section">
+            <h2>TRIBUTES FROM CHILDREN</h2>
+            <div class="text-content">
+                <p>
+                    rem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
+                    Suscipit ab aut aliquam dolor rem accusamus laborum error illum.
+                    At tenetur iusto nisi a aspernatur quos molestiae voluptate quam!
+                    Dolores, sapiente! Repellat rerum rem eos odio, nulla dicta sunt?
+                    Numquam, architecto officiis repellat similique animi provident voluptatibus unde! Quidem?
+                    Sit voluptate temporibus, nam unde corporis nisi rerum at sint.
+                    Sint necessitatibus nemo nisi ea voluptatum est consequatur nesciunt eaque?
+                    Voluptatem ut suscipit unde ducimus aliquam molestiae nemo dolores rerum!
+                    Fuga nihil laboriosam nostrum sunt itaque corrupti facilis quia ut?
+                    Sapiente omnis voluptatibus cumque eius nihil odit reprehenderit deleniti ratione?
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
+                </p>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="brothers-sisters-tribute-section" class="text-section">
+            <h2>TRIBUTE BY BROTHERS & SISTERS</h2>
+            <div class="text-content">
+                <p>
+                    rem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
+                    Suscipit ab aut aliquam dolor rem accusamus laborum error illum.
+                    At tenetur iusto nisi a aspernatur quos molestiae voluptate quam!
+                    Dolores, sapiente! Repellat rerum rem eos odio, nulla dicta sunt?
+                    Numquam, architecto officiis repellat similique animi provident voluptatibus unde! Quidem?
+                    Sit voluptate temporibus, nam unde corporis nisi rerum at sint.
+                    Sint necessitatibus nemo nisi ea voluptatum est consequatur nesciunt eaque?
+                    Voluptatem ut suscipit unde ducimus aliquam molestiae nemo dolores rerum!
+                    Fuga nihil laboriosam nostrum sunt itaque corrupti facilis quia ut?
+                    Sapiente omnis voluptatibus cumque eius nihil odit reprehenderit deleniti ratione?
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
+                </p>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="workplace-tribute-section" class="text-section">
+            <h2>TRIBUTES FROM GHS</h2>
+            <div class="text-content">
+                <p>
+                    rem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
+                    Suscipit ab aut aliquam dolor rem accusamus laborum error illum.
+                    At tenetur iusto nisi a aspernatur quos molestiae voluptate quam!
+                    Dolores, sapiente! Repellat rerum rem eos odio, nulla dicta sunt?
+                    Numquam, architecto officiis repellat similique animi provident voluptatibus unde! Quidem?
+                    Sit voluptate temporibus, nam unde corporis nisi rerum at sint.
+                    Sint necessitatibus nemo nisi ea voluptatum est consequatur nesciunt eaque?
+                    Voluptatem ut suscipit unde ducimus aliquam molestiae nemo dolores rerum!
+                    Fuga nihil laboriosam nostrum sunt itaque corrupti facilis quia ut?
+                    Sapiente omnis voluptatibus cumque eius nihil odit reprehenderit deleniti ratione?
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
+                </p>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="hesspg-tribute-section" class="text-section">
+            <h2>TRIBUTES FROM HESSPG</h2>
+            <div class="text-content">
+                <p>
+                    rem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
+                    Suscipit ab aut aliquam dolor rem accusamus laborum error illum.
+                    At tenetur iusto nisi a aspernatur quos molestiae voluptate quam!
+                    Dolores, sapiente! Repellat rerum rem eos odio, nulla dicta sunt?
+                    Numquam, architecto officiis repellat similique animi provident voluptatibus unde! Quidem?
+                    Sit voluptate temporibus, nam unde corporis nisi rerum at sint.
+                    Sint necessitatibus nemo nisi ea voluptatum est consequatur nesciunt eaque?
+                    Voluptatem ut suscipit unde ducimus aliquam molestiae nemo dolores rerum!
+                    Fuga nihil laboriosam nostrum sunt itaque corrupti facilis quia ut?
+                    Sapiente omnis voluptatibus cumque eius nihil odit reprehenderit deleniti ratione?
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
+                </p>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="grandchildren-tribute-section" class="text-section">
+            <h2>TRIBUTES FROM GRANDCHILDREN</h2>
+            <div class="text-content">
+                <p>
+                    rem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
+                    Suscipit ab aut aliquam dolor rem accusamus laborum error illum.
+                    At tenetur iusto nisi a aspernatur quos molestiae voluptate quam!
+                    Dolores, sapiente! Repellat rerum rem eos odio, nulla dicta sunt?
+                    Numquam, architecto officiis repellat similique animi provident voluptatibus unde! Quidem?
+                    Sit voluptate temporibus, nam unde corporis nisi rerum at sint.
+                    Sint necessitatibus nemo nisi ea voluptatum est consequatur nesciunt eaque?
+                    Voluptatem ut suscipit unde ducimus aliquam molestiae nemo dolores rerum!
+                    Fuga nihil laboriosam nostrum sunt itaque corrupti facilis quia ut?
+                    Sapiente omnis voluptatibus cumque eius nihil odit reprehenderit deleniti ratione?
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
+                </p>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="songs-hymns-section" class="text-section">
+            <h2>Songs and Hymns</h2>
+            <div class="text-content">
+                <p>
+                    rem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
+                    Suscipit ab aut aliquam dolor rem accusamus laborum error illum.
+                    At tenetur iusto nisi a aspernatur quos molestiae voluptate quam!
+                    Dolores, sapiente! Repellat rerum rem eos odio, nulla dicta sunt?
+                    Numquam, architecto officiis repellat similique animi provident voluptatibus unde! Quidem?
+                    Sit voluptate temporibus, nam unde corporis nisi rerum at sint.
+                    Sint necessitatibus nemo nisi ea voluptatum est consequatur nesciunt eaque?
+                    Voluptatem ut suscipit unde ducimus aliquam molestiae nemo dolores rerum!
+                    Fuga nihil laboriosam nostrum sunt itaque corrupti facilis quia ut?
+                    Sapiente omnis voluptatibus cumque eius nihil odit reprehenderit deleniti ratione?
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
+                </p>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="acknowledgement-section" class="text-section">
+            <h2>ACKNOWLEDGEMENT</h2>
+            <div class="text-content">
+                <p>
+                    rem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
+                    Suscipit ab aut aliquam dolor rem accusamus laborum error illum.
+                    At tenetur iusto nisi a aspernatur quos molestiae voluptate quam!
+                    Dolores, sapiente! Repellat rerum rem eos odio, nulla dicta sunt?
+                    Numquam, architecto officiis repellat similique animi provident voluptatibus unde! Quidem?
+                    Sit voluptate temporibus, nam unde corporis nisi rerum at sint.
+                    Sint necessitatibus nemo nisi ea voluptatum est consequatur nesciunt eaque?
+                    Voluptatem ut suscipit unde ducimus aliquam molestiae nemo dolores rerum!
+                    Fuga nihil laboriosam nostrum sunt itaque corrupti facilis quia ut?
+                    Sapiente omnis voluptatibus cumque eius nihil odit reprehenderit deleniti ratione?
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eligendi?
+                </p>
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="gallery-section" aria-labelledby="gallery-heading">
+            <h2 id="gallery-heading">Gallery</h2>
+            <div class="image-upload-area">
+                <h3>Upload New Image</h3>
+                <div class="upload-controls">
+                    <label for="imageUploadInput" class="custom-file-upload">
+                        <i class="fas fa-image"></i> Select Image
+                    </label>
+                    <input type="file" id="imageUploadInput" accept="image/*" class="hidden-input">
+                    <input id="namebox" type="text" placeholder="Enter image caption" aria-label="Image caption">
+                    <button id='upload' class="upload-button"><i class="fas fa-upload"></i> Upload Image</button>
+                    <p id="UpProgress" class="upload-status"></p>
+                </div>
+                <div class="image-preview-area">
+                    <img id="myimage" src="" alt="Selected image preview" class="image-preview">
+                </div>
+            </div>
+
+            <div id="galleryContainer" class="gallery-grid">
+                <p id="loadingMessage">Loading images... If loading takes too long, check your internet settings.</p>
+            </div>
+
+            <div id="fullscreenOverlay" class="fullscreen-overlay" role="dialog" aria-modal="true" aria-label="Full screen image view">
+                <span id="closeFullscreen" class="close-button" aria-label="Close full screen view">&times;</span>
+                <img id="fullscreenImage" src="" alt="Full screen image" class="fullscreen-image">
+                <div id="fullscreenCaption" class="fullscreen-caption"></div>
             </div>
         </section>
     </main>
+
+    <button id="backtotop" class="back-to-top-button" aria-label="Back to top">
+        <i class="material-icons">arrow_upward</i>
+    </button>
+
+    <footer>
+        <p>&copy; 2025 pearlysongs. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
 
     <script type="module" src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
     <script type="module" src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js"></script>
     <script type="module" src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js"></script>
     <script type="module">
-        // Import the necessary functions from Firebase modules
-        import { initializeApp }
-        from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js';
-        import { getStorage, ref as storageRef, uploadBytesResumable, getDownloadURL }
-        from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js';
-        import { getDatabase, ref as databaseRef, set, onValue, push }
-        from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js';
-        import { getAnalytics }
-        from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js';
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js';
+        import { getStorage, ref as storageRef, uploadBytesResumable, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js';
+        import { getDatabase, ref as databaseRef, set, onValue, push } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js';
+        import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js';
 
-        const firebaseConfig = {
+        // NOTE: For production, store API keys securely (e.g., environment variables or server-side).
+        // Do NOT hardcode them directly in public client-side code.
+       const firebaseConfig = {
                 apiKey: "AIzaSyCHeqn6XDpPZUc46T1dl74maVruQhfYj9E",
                 authDomain: "section-a-3bc20.firebaseapp.com",
                 databaseURL: "https://section-a-3bc20-default-rtdb.europe-west1.firebasedatabase.app",
@@ -335,215 +374,216 @@
                 measurementId: "G-QS2J4SWS18"
         };
 
-        // Initialize Firebase (using modular syntax)
+        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const storage = getStorage(app);
         const database = getDatabase(app);
-        const analytics = getAnalytics(app); // Uncomment if you use analytics
+        // const analytics = getAnalytics(app); // Uncomment if you use analytics
 
         // --- HTML Element References ---
         const namebox = document.getElementById('namebox');
-        const myimage = document.getElementById('myimage'); // For preview
+        const myimage = document.getElementById('myimage');
         const UpProgress = document.getElementById('UpProgress');
-        const selectButton = document.getElementById('select');
         const uploadButton = document.getElementById('upload');
-        const imageUploadInput = document.getElementById('imageUploadInput'); // Hidden file input
+        const imageUploadInput = document.getElementById('imageUploadInput');
         const galleryContainer = document.getElementById('galleryContainer');
         const loadingMessage = document.getElementById('loadingMessage');
         const fullscreenOverlay = document.getElementById('fullscreenOverlay');
         const fullscreenImage = document.getElementById('fullscreenImage');
         const fullscreenCaption = document.getElementById('fullscreenCaption');
         const closeFullscreen = document.getElementById('closeFullscreen');
-        const backtotop = document.getElementById('backtotop'); // Ensure this element exists in HTML
-
+        const backtotopButton = document.getElementById('backtotop'); // Renamed for clarity
+        const menuToggle = document.getElementById('menu-toggle');
+        const mainMenu = document.getElementById('main-menu');
 
         // --- Global Variables ---
-                let selectedFile = null; // To hold the file selected by the user
+        let selectedFile = null;
 
-                // --- Event Listeners ---
+        // --- Event Listeners ---
 
-                // Back to top button (requires jQuery if you're using it, otherwise implement with vanilla JS)
-                // If you are NOT using jQuery, replace the following block with vanilla JS scrolling:
-                if (backtotop) {
-                    backtotop.addEventListener("click", function() {
-                        window.scrollTo({ top: 0, behavior: 'smooth' }); // Vanilla JS smooth scroll
-                    });
+        // Navigation Toggle (Vanilla JS replacement for jQuery)
+        if (menuToggle && mainMenu) {
+            menuToggle.addEventListener('change', () => {
+                mainMenu.classList.toggle('show', menuToggle.checked);
+                // Set aria-expanded based on checkbox state
+                menuToggle.setAttribute('aria-expanded', menuToggle.checked);
+            });
+
+            // Close menu when a link is clicked (optional, for single-page apps)
+            mainMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.checked = false;
+                    mainMenu.classList.remove('show');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+
+        // Back to top button
+        if (backtotopButton) {
+            backtotopButton.addEventListener("click", function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Show/hide back-to-top button based on scroll position
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) { // Adjust scroll threshold as needed
+                    backtotopButton.style.display = 'flex'; // or 'block'
+                } else {
+                    backtotopButton.style.display = 'none';
                 }
+            });
+        }
 
-                // 1. Select Image Button: Triggers the hidden file input
-                selectButton.addEventListener('click', () => {
-                    imageUploadInput.click(); // Programmatically click the hidden file input
-                });
 
-                // 2. File Input Change: Handle file selection and preview
-                imageUploadInput.addEventListener('change', (e) => {
-                    selectedFile = e.target.files[0]; // Get the selected file
-                    if (selectedFile) {
-                        // Display image preview
-                        const reader = new FileReader();
-                        reader.onload = (event) => {
-                            myimage.src = event.target.result;
-                        };
-                        reader.readAsDataURL(selectedFile);
+        // File Input Change: Handle file selection and preview
+        imageUploadInput.addEventListener('change', (e) => {
+            selectedFile = e.target.files[0];
+            if (selectedFile) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    myimage.src = event.target.result;
+                    myimage.style.display = 'block'; // Show the image preview
+                };
+                reader.readAsDataURL(selectedFile);
+                UpProgress.textContent = `File selected: ${selectedFile.name}`;
+                UpProgress.style.color = 'black'; // Reset color
+            } else {
+                myimage.src = "";
+                myimage.style.display = 'none'; // Hide the image preview
+                UpProgress.textContent = "No file selected.";
+                UpProgress.style.color = 'gray';
+            }
+        });
 
-                        UpProgress.textContent = `File selected: ${selectedFile.name}`;
-                    } else {
-                        myimage.src = ""; // Clear preview
-                        UpProgress.textContent = "No file selected.";
-                    }
-                });
+        // Upload Image Button: Handle the upload process
+        uploadButton.addEventListener('click', async () => {
+            if (!selectedFile) {
+                UpProgress.textContent = 'Please select an image first!';
+                UpProgress.style.color = 'red';
+                return;
+            }
 
-                // 3. Upload Image Button: Handle the upload process
-                uploadButton.addEventListener('click', async () => {
-                    if (!selectedFile) {
-                        UpProgress.textContent = 'Please select an image first!';
-                        UpProgress.style.color = 'red';
-                        return;
-                    }
+            const imageName = namebox.value.trim();
+            if (!imageName) {
+                UpProgress.textContent = 'Please enter an image name/caption!';
+                UpProgress.style.color = 'red';
+                return;
+            }
 
-                    const imageName = namebox.value.trim();
-                    if (!imageName) {
-                        UpProgress.textContent = 'Please enter an image name/caption!';
-                        UpProgress.style.color = 'red';
-                        return;
-                    }
+            UpProgress.textContent = 'Starting upload...';
+            UpProgress.style.color = 'blue';
 
-                    // Create a storage reference
-                    // Path: images/uniqueTimestamp_filename.ext
-                    const fileName = `${Date.now()}_${selectedFile.name}`; // Unique filename
-                    const imageStorageRef = storageRef(storage, `Images/${fileName}`);
+            const fileName = `${Date.now()}_${selectedFile.name}`;
+            const imageStorageRef = storageRef(storage, `Images/${fileName}`);
+            const uploadTask = uploadBytesResumable(imageStorageRef, selectedFile);
 
-                    // Upload task
-                    const uploadTask = uploadBytesResumable(imageStorageRef, selectedFile);
+            uploadTask.on('state_changed',
+                (snapshot) => {
+                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    UpProgress.textContent = `Upload is ${progress.toFixed(2)}% done`;
+                    UpProgress.style.color = 'orange';
+                },
+                (error) => {
+                    console.error('Upload failed:', error);
+                    UpProgress.textContent = `Upload failed: ${error.message}`;
+                    UpProgress.style.color = 'red';
+                },
+                async () => {
+                    try {
+                        const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+                        console.log('File available at', downloadURL);
 
-                    // Listen for state changes, errors, and completion of the upload.
-                    uploadTask.on('state_changed',
-                        (snapshot) => {
-                            // Get upload progress
-                            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                            UpProgress.textContent = `Upload is ${progress.toFixed(2)}% done`;
-                            UpProgress.style.color = 'orange';
-                            switch (snapshot.state) {
-                                case 'paused':
-                                    console.log('Upload is paused');
-                                    break;
-                                case 'running':
-                                    console.log('Upload is running');
-                                    break;
-                            }
-                        },
-                        (error) => {
-                            // Handle unsuccessful uploads
-                            console.error('Upload failed:', error);
-                            UpProgress.textContent = `Upload failed: ${error.message}`;
-                            UpProgress.style.color = 'red';
-                        },
-                        async () => {
-                            // Handle successful uploads on complete
-                            try {
-                                const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-                                console.log('File available at', downloadURL);
-
-                                // Save image metadata to Realtime Database
-                                // Using push() to generate unique keys for each image
-                                const newImageRef = push(databaseRef(database, 'Carpenter J')); // 'Carpenter J' is your database node name
-                                await set(newImageRef, {
-                                    name: imageName,
-                                    url: downloadURL,
-                                    timestamp: Date.now() // For ordering
-                                });
-
-                                UpProgress.textContent = 'Upload successful!';
-                                UpProgress.style.color = 'green';
-                                namebox.value = ''; // Clear namebox
-                                myimage.src = ""; // Clear preview
-                                selectedFile = null; // Reset selected file
-
-                            } catch (error) {
-                                console.error('Error getting download URL or saving to DB:', error);
-                                UpProgress.textContent = `Post-upload error: ${error.message}`;
-                                UpProgress.style.color = 'red';
-                            }
-                        }
-                    );
-                });
-
-                // --- Image Display Functionality (from Realtime Database) ---
-
-                function renderImageToGallery(imageUrl, imageName, key) {
-                    const figure = document.createElement('figure');
-                    figure.classList.add('gallery');
-                    figure.dataset.key = key; // Store the database key for potential future use (e.g., deletion)
-
-                    const img = document.createElement('img');
-                    img.src = imageUrl;
-                    img.alt = imageName; // Use the image name as alt text
-                    img.title = imageName; // Use the image name as title
-                    // img.width and img.height are removed here as CSS will control sizing for responsiveness
-
-                    // Add click event listener to the image for full-screen display
-                    img.addEventListener('click', () => {
-                        fullscreenImage.src = imageUrl; // Set the full-screen image source
-                        fullscreenImage.alt = imageName; // Set alt text
-                        fullscreenCaption.textContent = imageName; // Set the caption
-                        fullscreenOverlay.style.display = 'flex'; // Show the overlay (using flex for centering)
-                    });
-
-                    const figcaption = document.createElement('figcaption');
-                    figcaption.textContent = imageName;
-
-                    figure.appendChild(img);
-                    figure.appendChild(figcaption);
-
-                    galleryContainer.appendChild(figure);
-                }
-
-                // Listen for changes in the 'Franklin' node in Realtime Database
-                onValue(databaseRef(database, 'Carpenter J'), (snapshot) => {
-                    galleryContainer.innerHTML = ''; // Clear current gallery
-                    loadingMessage.style.display = 'none'; // Hide loading message
-
-                    if (snapshot.exists()) {
-                        const imagesData = snapshot.val();
-                        const imagesArray = [];
-
-                        // Convert object of objects to an array for easier sorting
-                        for (let key in imagesData) {
-                            imagesArray.push({
-                                key: key,
-                                ...imagesData[key]
-                            });
-                        }
-
-                        // Sort images by timestamp (newest first)
-                        imagesArray.sort((a, b) => b.timestamp - a.timestamp);
-
-                        imagesArray.forEach(image => {
-                            renderImageToGallery(image.url, image.name, image.key);
+                        const newImageRef = push(databaseRef(database, 'Carpenter J'));
+                        await set(newImageRef, {
+                            name: imageName,
+                            url: downloadURL,
+                            timestamp: Date.now()
                         });
-                    } else {
-                        galleryContainer.innerHTML = '<p>No images uploaded yet.</p>';
+
+                        UpProgress.textContent = 'Upload successful!';
+                        UpProgress.style.color = 'green';
+                        namebox.value = '';
+                        myimage.src = "";
+                        myimage.style.display = 'none'; // Hide preview after successful upload
+                        selectedFile = null;
+                        imageUploadInput.value = ''; // Clear file input
+                    } catch (error) {
+                        console.error('Error getting download URL or saving to DB:', error);
+                        UpProgress.textContent = `Post-upload error: ${error.message}`;
+                        UpProgress.style.color = 'red';
                     }
-                }, (error) => {
-                    console.error('Error fetching images from Realtime Database:', error);
-                    galleryContainer.innerHTML = `<p style="color: red;">Error loading images: ${error.message}</p>`;
-                });
+                }
+            );
+        });
 
-                // Add an event listener to the close button for the fullscreen overlay
-                closeFullscreen.addEventListener('click', () => {
-                    fullscreenOverlay.style.display = 'none'; // Hide the overlay
-                });
-                
-            </script>
+        // --- Image Display Functionality (from Realtime Database) ---
 
-            <ol>
-                <button id="backtotop">
-                    <i class="material-icons">arrow_upward</i>
-                </button>
-            </ol>
-            <footer id="copyright">
-                <p>&copy; pearlysongs 2025</p>
-            </footer>
-            <script class="Carpenter john.script"></script>
+        function renderImageToGallery(imageUrl, imageName, key) {
+            const figure = document.createElement('figure');
+            figure.classList.add('gallery-item'); // Changed class name for clarity
+            figure.dataset.key = key;
+
+            const img = document.createElement('img');
+            img.src = imageUrl;
+            img.alt = imageName;
+            img.title = imageName;
+            img.loading = 'lazy'; // Add lazy loading for performance
+
+            img.addEventListener('click', () => {
+                fullscreenImage.src = imageUrl;
+                fullscreenImage.alt = imageName;
+                fullscreenCaption.textContent = imageName;
+                fullscreenOverlay.style.display = 'flex';
+                // Add class to body to prevent scrolling when overlay is active
+                document.body.classList.add('no-scroll');
+            });
+
+            const figcaption = document.createElement('figcaption');
+            figcaption.textContent = imageName;
+
+            figure.appendChild(img);
+            figure.appendChild(figcaption);
+
+            galleryContainer.appendChild(figure);
+        }
+
+        // Listen for changes in the 'Carpenter J' node in Realtime Database
+        onValue(databaseRef(database, 'Carpenter J'), (snapshot) => {
+            galleryContainer.innerHTML = '';
+            loadingMessage.style.display = 'none';
+
+            if (snapshot.exists()) {
+                const imagesData = snapshot.val();
+                const imagesArray = [];
+
+                for (let key in imagesData) {
+                    imagesArray.push({
+                        key: key,
+                        ...imagesData[key]
+                    });
+                }
+
+                imagesArray.sort((a, b) => b.timestamp - a.timestamp);
+
+                imagesArray.forEach(image => {
+                    renderImageToGallery(image.url, image.name, image.key);
+                });
+            } else {
+                galleryContainer.innerHTML = '<p class="no-images-message">No images uploaded yet.</p>';
+            }
+        }, (error) => {
+            console.error('Error fetching images from Realtime Database:', error);
+            galleryContainer.innerHTML = `<p class="error-message">Error loading images: ${error.message}</p>`;
+        });
+
+        // Close button for the fullscreen overlay
+        closeFullscreen.addEventListener('click', () => {
+            fullscreenOverlay.style.display = 'none';
+            // Remove no-scroll class from body
+            document.body.classList.remove('no-scroll');
+        });
+    </script>
+ <script class="CarpenterJohn.script"></script>
 </body>
 </html>
