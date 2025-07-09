@@ -13,13 +13,15 @@
 
         /* --- Navigation Bar --- */
         .main-nav {
-            background: #025037;
-            color: white;
-            padding: 10px 20px;
+             background: #025037;
+            height: 80px;
+            width: 100%;
+            /* Added display: flex for better alignment of logo and menu */
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+            justify-content: space-between; /* Pushes logo to left, menu to right */
+            align-items: center; /* Vertically centers items */
+            padding: 0 20px; /* Added padding for smaller screens */
+            position: relative; /* For positioning the mobile menu */
         }
 
         .main-nav .logo {
