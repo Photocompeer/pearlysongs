@@ -1,7 +1,6 @@
-
-            /* Universal Styles & Box-Sizing */
+        /* Universal Styles & Box-Sizing */
         *, *::before, *::after {
-            box-sizing: border-box; /* Include padding and border in element's total width/height */
+            box-sizing: border-box;
             text-decoration: none;
             margin: 0;
             padding: 0;
@@ -10,18 +9,16 @@
 
         /* Body & Base Typography */
         body {
-            font-family: 'Arial', sans-serif; /* Prefer a web-safe font or specify imported fonts */
-            font-size: 1rem; /* Use rem for better scalability */
+            font-family: 'Arial', sans-serif;
+            font-size: 1rem; /* Base font size */
             line-height: 1.6;
-            color: #333; /* Default text color */
-            background-image: url('../images/Adinkra-nkyinkyim-bold-400w-280x280.png'); /* Relative path from CSS file */
-            background-repeat: repeat-y; /* Use 'repeat-y' for vertical repetition */
-            background-position: left center;
-            background-size: 5%; /* Relative to the element's size */
-            background-attachment: fixed; /* Keep background fixed when scrolling */
-            min-height: 100vh; /* Ensure body takes full viewport height */
+            color: #333;
+            background-color: #f8f8f8; /* A light background color */
+            background-size: 100px; /* Adjust size for better tiling on all screens */
+            background-attachment: fixed;
+            min-height: 100vh;
             display: flex;
-            flex-direction: column; /* For sticky footer layout */
+            flex-direction: column;
         }
 
         /* Header & Navigation */
@@ -31,91 +28,129 @@
         }
 
         nav {
-            background: #025037;
-            height: 80px;
-            width: 100%;
-            /* Added display: flex for better alignment of logo and menu */
             display: flex;
-            justify-content: space-between; /* Pushes logo to left, menu to right */
-            align-items: center; /* Vertically centers items */
-            padding: 0 20px; /* Added padding for smaller screens */
-            position: relative; /* For positioning the mobile menu */
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            padding: 0 1rem; /* Use rem for horizontal padding */
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            font-size: 2.2rem; /* Use rem for font sizes */
+            font-size: 2rem; /* Adjusted for mobile-first, will scale up */
             font-weight: bold;
             color: white;
-            text-decoration: none; /* Ensure no underline */
-            padding: 0; /* Remove extra padding, nav handles it */
+            white-space: nowrap; /* Prevent logo from wrapping */
         }
 
         .logo span {
-            margin-left: 8px; /* Space between emoji and text */
+            margin-left: 0.5rem;
         }
 
         nav ul {
-            display: flex; /* Use flexbox for menu items */
-            margin-right: 0; /* No need for float, flex handles positioning */
+            display: flex;
+            /* Hidden by default on small screens, shown by media query for larger screens */
         }
 
         nav li {
-            margin: 0 10px; /* Consistent spacing between list items */
+            margin: 0 0.5rem; /* Adjusted spacing */
         }
 
         nav a {
             color: white;
-            font-size: 1.1rem; /* Use rem for font sizes */
+            font-size: 1rem; /* Base font size for nav links */
             text-transform: uppercase;
-            padding: 8px 12px; /* Slightly more padding for touch targets */
-            border: 1px solid transparent; /* Consistent border for active/hover */
-            border-radius: 3px; /* Apply border-radius for softer edges */
-            transition: all 0.3s ease; /* Smooth transition for hover effects */
+            padding: 0.5rem 0.8rem;
+            border: 1px solid transparent;
+            border-radius: 3px;
+            transition: all 0.3s ease;
         }
 
         nav a.active,
         nav a:hover {
-            border-color: white; /* Only change border color */
-            background-color: rgba(255, 255, 255, 0.1); /* Subtle background on hover */
+            border-color: white;
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
         #menu-icon {
-            display: none; /* Hidden by default on larger screens */
+            display: block; /* Always display on mobile-first */
             color: white;
-            font-size: 2rem;
+            font-size: 1.8rem; /* Slightly smaller for mobile */
             background: none;
             border: none;
             cursor: pointer;
-            padding: 10px;
+            padding: 0.5rem;
+        }
+
+        /* Mobile Navigation Toggle (Hamburger Menu) */
+        nav ul {
+            position: fixed;
+            top: 80px; /* Below the header */
+            left: -100%; /* Off-screen by default */
+            width: 100%;
+            height: calc(100vh - 80px); /* Full viewport height minus header height */
+            background: #2f3640; /* Darker background for mobile menu */
+            flex-direction: column; /* Stack menu items vertically */
+            justify-content: flex-start;
+            padding-top: 1rem;
+            transition: all 0.5s ease-in-out;
+            overflow-y: auto; /* Enable scrolling for long menus */
+            z-index: 1000; /* Ensure menu is on top */
+        }
+
+        nav ul.show {
+            left: 0; /* Slide menu into view */
+            display: flex; /* Ensure it's displayed as flex when 'show' */
+        }
+
+        nav li {
+            margin: 1rem 0; /* More vertical space for menu items */
+        }
+
+        nav a {
+            font-size: 1.2rem; /* Larger font for mobile menu links */
+            padding: 0.8rem 1rem; /* Larger touch target */
+            display: block; /* Make links take full width for easier tapping */
+        }
+
+        nav a.active,
+        nav a:hover {
+            border: none; /* No border in mobile view */
+            color: #3498db; /* Different hover color for mobile */
+            background-color: rgba(255, 255, 255, 0.05);
         }
 
         /* Main Content Layout */
         main {
-            flex-grow: 1; /* Allows main content to take up available space, pushing footer down */
-            padding: 20px 0; /* Add some vertical padding */
+            flex-grow: 1;
+            padding: 1.5rem 0; /* Use rem for vertical padding */
         }
 
         .container {
             max-width: 1200px;
-            margin: 0 auto; /* Center the container */
-            padding: 0 15px; /* Add horizontal padding to prevent content from touching edges */
-            display: flex; /* Make the container a flex container */
-            flex-wrap: wrap; /* Allow items to wrap to the next line */
-            justify-content: center; /* Center items horizontally */
-            gap: 30px; /* Space between profile cards */
+            margin: 0 auto;
+            padding: 0 1rem; /* Use rem for horizontal padding */
+            
+            /* CSS Grid for profile cards */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Flexible grid, minimum 280px wide cards */
+            gap: 1.5rem; /* Space between profile cards */
+            justify-items: center; /* Center items within their grid cells */
         }
 
         /* Profile Cards */
         .profile-card {
-            background-color: #fff; /* White background for each card */
+            background-color: #fff;
             border: 1px solid #eee;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
+            padding: 1.25rem; /* Use rem for padding */
             text-align: center;
-            width: 300px; /* Fixed width for profile cards, adjust as needed */
+            width: 100%; /* Take full width of its grid cell */
+            max-width: 320px; /* Limit max width for consistency in larger grids */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -128,15 +163,15 @@
         }
 
         .profile-image {
-            width: 150px; /* Consistent size for profile images */
-            height: 150px;
-            margin-bottom: 20px;
+            width: 120px; /* Adjusted size, will scale */
+            height: 120px;
+            margin-bottom: 1.25rem;
         }
 
         .profile-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Crop to fit, maintain aspect ratio */
+            object-fit: cover;
             border: 5px double gold;
             border-radius: 50%;
             transition: box-shadow 0.15s, transform 0.15s;
@@ -145,54 +180,54 @@
         .profile-image img:hover {
             cursor: pointer;
             box-shadow: 0 0.4rem 1.4rem 0 rgba(244, 15, 15, 0.5);
-            transform: scale(1.02); /* Slightly enlarge on hover */
+            transform: scale(1.02);
         }
 
         .profile-link-wrapper {
-            margin-top: auto; /* Push the button to the bottom if content above varies */
+            margin-top: auto;
         }
 
         /* Buttons */
         .btn {
-            font-size: 1.2rem;
-            padding: 0.8rem 1.5rem;
+            font-size: 1rem; /* Base font size for buttons */
+            padding: 0.6rem 1.2rem;
             text-align: center;
             border: 0.1rem solid #f20606;
-            margin-top: 15px; /* Space above the button */
+            margin-top: 1rem;
             text-decoration: none;
             color: #f5eded;
             background-color: #141515;
             border-radius: 5px;
             transition: transform 0.15s, box-shadow 0.15s, background-color 0.3s;
-            display: inline-block; /* Allows padding and margin to work correctly */
+            display: inline-block;
         }
 
         .btn:hover {
             cursor: pointer;
             box-shadow: 0 0.4rem 1.4rem 0 rgba(244, 15, 15, 0.5);
             transform: translateY(-0.1rem);
-            background-color: #2a2c2c; /* Darker background on hover */
+            background-color: #2a2c2c;
         }
 
-        .btn[disabled] { /* Corrected typo: diasabled to disabled */
+        .btn[disabled] {
             cursor: not-allowed;
             opacity: 0.6;
             box-shadow: none;
             transform: none;
-            background-color: #555; /* Grey out disabled button */
+            background-color: #555;
             border-color: #555;
         }
 
         /* Footer */
         footer {
-            padding: 20px;
-            font-size: 1rem;
+            padding: 1.25rem;
+            font-size: 0.9rem; /* Adjusted for smaller screens */
             font-weight: bold;
             text-align: center;
             background: #025037;
             color: white;
             letter-spacing: 1px;
-            margin-top: 20px; /* Space above footer */
+            margin-top: 1.25rem;
         }
 
         /* Utility Classes (General Purpose) */
@@ -203,8 +238,8 @@
 
         .flex-center {
             display: flex;
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
+            justify-content: center;
+            align-items: center;
         }
 
         .text-center {
@@ -215,271 +250,66 @@
             display: none;
         }
 
-        /* Responsive Media Queries */
-        @media (max-width: 1048px) {
+        /* Responsive Media Queries - Desktop First Approach (Using min-width) */
+
+        /* For Tablet and larger screens (e.g., 768px and up) */
+        @media (min-width: 768px) {
             nav {
-                padding: 0 15px; /* Adjust padding for smaller screens */
+                padding: 0 2rem; /* More padding for larger screens */
             }
 
             .logo {
-                font-size: 2rem;
+                font-size: 2.2rem; /* Restore larger logo size */
             }
 
-            nav ul {
-                margin-right: 10px; /* Adjust margin */
-            }
-
-            nav a {
-                font-size: 1rem;
-            }
-        }
-
-        @media (max-width: 909px) {
             #menu-icon {
-                display: block; /* Show menu icon on small screens */
+                display: none; /* Hide menu icon on larger screens */
             }
 
             nav ul {
-                position: fixed;
-                width: 100%;
-                height: 100vh; /* Full viewport height */
-                background: #2f3640;
-                top: 80px; /* Below the header */
-                left: 100%; /* Off-screen by default */
-                text-align: center;
-                flex-direction: column; /* Stack menu items vertically */
-                justify-content: flex-start; /* Align items to top */
-                padding-top: 20px; /* Space from top of menu */
-                transition: all 0.5s ease-in-out; /* Smooth transition */
-                overflow-y: auto; /* Enable scrolling for long menus */
-            }
-
-            nav ul.show { /* Corrected selector: nav ul.show */
-                left: 0; /* Slide menu into view */
+                position: static; /* Reset positioning for desktop menu */
+                height: auto;
+                background: none;
+                flex-direction: row; /* Display menu items horizontally */
+                padding-top: 0;
+                display: flex; /* Always display on desktop */
+                left: auto; /* Remove left positioning */
             }
 
             nav li {
-                margin: 20px 0; /* More vertical space for menu items */
-                line-height: normal; /* Reset line height */
+                margin: 0 0.8rem; /* Adjust spacing between desktop nav items */
             }
 
             nav a {
-                font-size: 1.5rem; /* Larger font for mobile menu links */
-                padding: 12px 15px; /* Larger touch target */
-                display: block; /* Make links take full width for easier tapping */
+                font-size: 1.1rem; /* Restore desktop font size */
+                padding: 0.5rem 1rem;
+                border: 1px solid transparent; /* Restore border */
             }
-
+            
             nav a.active,
             nav a:hover {
-                border: none; /* No border in mobile view */
-                color: #3498db; /* Different hover color for mobile */
-                background-color: rgba(255, 255, 255, 0.05); /* Subtle background for mobile hover */
+                border-color: white; /* Restore border color */
+                background-color: rgba(255, 255, 255, 0.1); /* Restore background */
+                color: white; /* Ensure text color remains white */
             }
 
+            .profile-image {
+                width: 150px; /* Restore larger image size */
+                height: 150px;
+            }
+            
+            footer {
+                font-size: 1rem; /* Restore desktop font size */
+            }
+        }
+
+        /* For larger desktops (e.g., 1024px and up) */
+        @media (min-width: 1024px) {
             .container {
-                flex-direction: column; /* Stack profile cards vertically on small screens */
-                align-items: center; /* Center them horizontally */
+                gap: 2rem; /* Increase gap for larger screens */
             }
 
             .profile-card {
-                width: 90%; /* Make cards wider on small screens */
-                max-width: 400px; /* Limit max width for very large phones */
+                max-width: none; /* Allow cards to take full grid cell width */
             }
-        }
-
-        /* --- Media Queries for Responsiveness --- */
-
-                /* For screens smaller than 768px (common tablet portrait and mobile) */
-                @media (max-width: 768px) {
-                    .main-nav {
-                        flex-direction: column; /* Stack logo and menu vertically */
-                        align-items: flex-start;
-                    }
-
-                    .main-nav ul {
-                        width: 100%;
-                        flex-direction: column; /* Stack menu items vertically */
-                        display: none; /* Hide menu by default on small screens */
-                        text-align: center;
-                    }
-
-                    .main-nav ul.show {
-                        display: flex; /* Show menu when 'show' class is toggled */
-                    }
-
-                    .main-nav ul li a {
-                        padding: 12px 0; /* More vertical padding */
-                        border-bottom: 1px solid #444; /* Separator for menu items */
-                    }
-
-                    .main-nav ul li:last-child a {
-                        border-bottom: none;
-                    }
-
-                    .menu-icon {
-                        display: block; /* Show menu icon on small screens */
-                        position: absolute; /* Position the icon relative to the nav */
-                        right: 20px;
-                        top: 15px;
-                    }
-
-                    .content-links ul {
-                        grid-template-columns: 1fr; /* Single column for content links */
-                    }
-
-                    .image-upload-controls {
-                        align-items: stretch; /* Stretch inputs to full width */
-                    }
-
-                    .image-upload-controls .button-group {
-                        flex-direction: column; /* Stack buttons vertically */
-                    }
-
-                    .gallery-display-container {
-                        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Smaller grid items for mobile */
-                    }
-
-                    h1 {
-                        font-size: 1.8em; /* Slightly smaller headings for mobile */
-                    }
-                }
-
-        /* For screens even smaller than 480px (very small phones) */
-                @media (max-width: 480px) {
-                    body {
-                        font-size: 0.9em; /* Slightly smaller base font size */
-                    }
-
-                    .main-nav {
-                        padding: 10px;
-                    }
-
-                    .main-nav .logo {
-                        font-size: 1.5em;
-                    }
-
-                    .menu-icon {
-                        font-size: 1.5em;
-                        right: 10px;
-                        top: 12px;
-                    }
-
-                    main {
-                        padding: 15px;
-                    }
-                }
-
-        .gallery {
-            border: 1px solid #ccc;
-            float: left; /* Consider using flexbox/grid for gallery layout instead of floats */
-            width: 390px;
-            margin: 1rem;
-            border: 5px solid rgb(246, 235, 235);
-        }
-
-        .gallery img {
-            width: 100%;
-            height: auto;
-        }
-
-        .gallery figcaption {
-            padding: 15px;
-            text-align: center;
-            background-color: white;
-            font-size: medium;
-            font-style: normal;
-        } 
-
-        .gallery img:hover {
-            cursor: pointer;
-            filter: brightness(77%);
-        }
-
-        #backtotop {
-            right: 10px;
-            bottom: 10px;
-            width: 50px;
-            height: 50px;
-            margin: 5px;
-            position: fixed;
-            border-radius: 50%;
-            background: #e62739;
-            box-shadow: 0 0 10px rgba(0,0,0,0.25);
-            color: #ffff;
-            outline: none;
-            cursor: pointer;
-            border: none;
-            display: flex; /* Use flexbox for centering icon if it's an icon */
-            justify-content: center;
-            align-items: center;
-        }
-
-        #backtotop:active {
-            background: #cc2333;
-        }
-
-        #copyright { /* This ID is now on the footer element itself */
-            font-style: oblique;
-            color:white; /* This color will be overridden by the footer rule unless more specific */
-        }
-
-        .rsvp {
-            font-size: 1.5rem;
-            text-align: center;
-            margin: 1rem;
-            text-shadow: 2px 2px 5px #fc0303; 
-            color: #0b0b0b;
-            font-weight: bold;
-        }
-
-        #fullscreenOverlay {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            margin: 0; /* Remove margin for full-screen overlay */
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(252, 249, 249, 0.9);
-            display: flex; /* Ensure display is flex for centering */
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            border: 5px solid silver;
-        }
-
-        #fullscreenImage {
-            max-width: 90%;
-            max-height: 85%;
-            display: block;
-            margin: auto;
-            object-fit: contain;
-        }
-
-        #fullscreenCaption {
-            color: black;
-            font-size: 1.5rem;
-            padding: 10px 0;
-            text-align: center;
-            max-width: 90%;
-            word-wrap: break-word;
-        }
-
-        #closeFullscreen {
-            position: absolute;
-            top: 20px;
-            right: 35px;
-            color: #0b0000;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-
-        #closeFullscreen:hover,
-        #closeFullscreen:focus {
-            color: #bbb;
-            text-decoration: none;
         }
