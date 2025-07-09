@@ -31,13 +31,15 @@
         }
 
         nav {
-            display: flex; /* Use flexbox for navigation layout */
-            justify-content: space-between; /* Distribute items with space between */
-            align-items: center; /* Vertically align items in the center */
+            background: #025037;
             height: 80px;
-            padding: 0 20px; /* Add padding to sides */
-            max-width: 1200px; /* Max width for content */
-            margin: 0 auto; /* Center the nav content */
+            width: 100%;
+            /* Added display: flex for better alignment of logo and menu */
+            display: flex;
+            justify-content: space-between; /* Pushes logo to left, menu to right */
+            align-items: center; /* Vertically centers items */
+            padding: 0 20px; /* Added padding for smaller screens */
+            position: relative; /* For positioning the mobile menu */
         }
 
         .logo {
