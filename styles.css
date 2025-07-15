@@ -1,0 +1,324 @@
+        /* Universal Styles & Box-Sizing */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            text-decoration: none;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        /* Body & Base Typography */
+        body {
+            font-family: 'Arial', sans-serif;
+            font-size: 1rem; /* Base font size */
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f8f8; /* A light background color */
+            background-size: 100px; /* Adjust size for better tiling on all screens */
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: #025037;
+            width: 100%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            padding: 0 1rem; /* Use rem for horizontal padding */
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 2rem; /* Adjusted for mobile-first, will scale up */
+            font-weight: bold;
+            color: white;
+            white-space: nowrap; /* Prevent logo from wrapping */
+        }
+
+        .logo span {
+            margin-left: 0.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            /* Hidden by default on small screens, shown by media query for larger screens */
+        }
+
+        nav li {
+            margin: 0 0.5rem; /* Adjusted spacing */
+        }
+
+        nav a {
+            color: white;
+            font-size: 1rem; /* Base font size for nav links */
+            text-transform: uppercase;
+            padding: 0.5rem 0.8rem;
+            border: 1px solid transparent;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        nav a.active,
+        nav a:hover {
+            border-color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        #menu-icon {
+            display: block; /* Always display on mobile-first */
+            color: white;
+            font-size: 1.8rem; /* Slightly smaller for mobile */
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+       /* STYLES.CSS */
+
+/* ... (other styles) ... */
+
+        /* Mobile Navigation Toggle (Hamburger Menu) */
+        nav ul {
+            position: fixed;
+            top: 80px; /* Below the header */
+            /* left: -100%; /* Off-screen by default - REMOVE THIS LINE */
+            transform: translateX(-100%); /* Use transform instead of left */
+            width: 100%;
+            height: calc(100vh - 80px); /* Full viewport height minus header height */
+            background: #2f3640; /* Darker background for mobile menu */
+            flex-direction: column; /* Stack menu items vertically */
+            justify-content: flex-start;
+            padding-top: 1rem;
+            transition: transform 0.5s ease-in-out; /* Transition 'transform' */
+            overflow-y: auto; /* Enable scrolling for long menus */
+            z-index: 1000; /* Ensure menu is on top */
+            display: flex; /* Ensure it's always a flex container, just off-screen */
+        }
+
+
+        nav ul.show {
+            transform: translateX(0); /* Slide menu into view */
+            /* display: flex; /* This line might not be needed if 'display: flex' is always present above */
+        }
+
+/* ... (rest of your CSS) ... */
+
+        nav li {
+            margin: 1rem 0; /* More vertical space for menu items */
+        }
+
+        nav a {
+            font-size: 1.2rem; /* Larger font for mobile menu links */
+            padding: 0.8rem 1rem; /* Larger touch target */
+            display: block; /* Make links take full width for easier tapping */
+        }
+
+        nav a.active,
+        nav a:hover {
+            border: none; /* No border in mobile view */
+            color: #3498db; /* Different hover color for mobile */
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Main Content Layout */
+        main {
+            flex-grow: 1;
+            padding: 1.5rem 0; /* Use rem for vertical padding */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem; /* Use rem for horizontal padding */
+            
+            /* CSS Grid for profile cards */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Flexible grid, minimum 280px wide cards */
+            gap: 1.5rem; /* Space between profile cards */
+            justify-items: center; /* Center items within their grid cells */
+        }
+
+        /* Profile Cards */
+        .profile-card {
+            background-color: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 1.25rem; /* Use rem for padding */
+            text-align: center;
+            width: 100%; /* Take full width of its grid cell */
+            max-width: 320px; /* Limit max width for consistency in larger grids */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-image {
+            width: 120px; /* Adjusted size, will scale */
+            height: 120px;
+            margin-bottom: 1.25rem;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 5px double gold;
+            border-radius: 50%;
+            transition: box-shadow 0.15s, transform 0.15s;
+        }
+
+        .profile-image img:hover {
+            cursor: pointer;
+            box-shadow: 0 0.4rem 1.4rem 0 rgba(244, 15, 15, 0.5);
+            transform: scale(1.02);
+        }
+
+        .profile-link-wrapper {
+            margin-top: auto;
+        }
+
+        /* Buttons */
+        .btn {
+            font-size: 1rem; /* Base font size for buttons */
+            padding: 0.6rem 1.2rem;
+            text-align: center;
+            border: 0.1rem solid #f20606;
+            margin-top: 1rem;
+            text-decoration: none;
+            color: #f5eded;
+            background-color: #141515;
+            border-radius: 5px;
+            transition: transform 0.15s, box-shadow 0.15s, background-color 0.3s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            cursor: pointer;
+            box-shadow: 0 0.4rem 1.4rem 0 rgba(244, 15, 15, 0.5);
+            transform: translateY(-0.1rem);
+            background-color: #2a2c2c;
+        }
+
+        .btn[disabled] {
+            cursor: not-allowed;
+            opacity: 0.6;
+            box-shadow: none;
+            transform: none;
+            background-color: #555;
+            border-color: #555;
+        }
+
+        /* Footer */
+        footer {
+            padding: 1.25rem;
+            font-size: 0.9rem; /* Adjusted for smaller screens */
+            font-weight: bold;
+            text-align: center;
+            background: #025037;
+            color: white;
+            letter-spacing: 1px;
+            margin-top: 1.25rem;
+        }
+
+        /* Utility Classes (General Purpose) */
+        .flex-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .flex-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Responsive Media Queries - Desktop First Approach (Using min-width) */
+
+        /* For Tablet and larger screens (e.g., 768px and up) */
+        @media (min-width: 768px) {
+            nav {
+                padding: 0 2rem; /* More padding for larger screens */
+            }
+
+            .logo {
+                font-size: 2.2rem; /* Restore larger logo size */
+            }
+
+            #menu-icon {
+                display: none; /* Hide menu icon on larger screens */
+            }
+
+            nav ul {
+                position: static; /* Reset positioning for desktop menu */
+                height: auto;
+                background: none;
+                flex-direction: row; /* Display menu items horizontally */
+                padding-top: 0;
+                display: flex; /* Always display on desktop */
+                left: auto; /* Remove left positioning */
+            }
+
+            nav li {
+                margin: 0 0.8rem; /* Adjust spacing between desktop nav items */
+            }
+
+            nav a {
+                font-size: 1.1rem; /* Restore desktop font size */
+                padding: 0.5rem 1rem;
+                border: 1px solid transparent; /* Restore border */
+            }
+            
+            nav a.active,
+            nav a:hover {
+                border-color: white; /* Restore border color */
+                background-color: rgba(255, 255, 255, 0.1); /* Restore background */
+                color: white; /* Ensure text color remains white */
+            }
+
+            .profile-image {
+                width: 150px; /* Restore larger image size */
+                height: 150px;
+            }
+            
+            footer {
+                font-size: 1rem; /* Restore desktop font size */
+            }
+        }
+
+        /* For larger desktops (e.g., 1024px and up) */
+        @media (min-width: 1024px) {
+            .container {
+                gap: 2rem; /* Increase gap for larger screens */
+            }
+
+            .profile-card {
+                max-width: none; /* Allow cards to take full grid cell width */
+            }
+        }
