@@ -436,21 +436,6 @@
 
         <section id="gallery-section" aria-labelledby="gallery-heading">
             <h2 id="gallery-heading">Gallery <span class="bird"><br>&#128330;<br></span></h2>
-            <div class="image-upload-area">
-                <h3>Upload New Image</h3>
-                <div class="upload-controls">
-                    <label for="imageUploadInput" class="custom-file-upload">
-                        <i class="fas fa-image"></i> Select Image
-                    </label>
-                    <input type="file" id="imageUploadInput" accept="image/*" class="hidden-input">
-                    <input id="namebox" type="text" placeholder="Enter image caption" aria-label="Image caption">
-                    <button id='upload' class="upload-button"><i class="fas fa-upload"></i> Upload Image</button>
-                    <p id="UpProgress" class="upload-status"></p>
-                </div>
-                <div class="image-preview-area">
-                    <img id="myimage" src="" alt="Selected image preview" class="image-preview">
-                </div>
-            </div>
 
             <div id="galleryContainer" class="gallery-grid">
                 <p id="loadingMessage">Loading images... If loading takes too long, check your internet settings.</p>
@@ -503,14 +488,9 @@
         const app = initializeApp(firebaseConfig);
         const storage = getStorage(app);
         const database = getDatabase(app);
-        // const analytics = getAnalytics(app); // Uncomment if you use analytics
+        const analytics = getAnalytics(app); // Uncomment if you use analytics
 
-        // --- HTML Element References ---
-        const namebox = document.getElementById('namebox');
-        const myimage = document.getElementById('myimage');
-        const UpProgress = document.getElementById('UpProgress');
-        const uploadButton = document.getElementById('upload');
-        const imageUploadInput = document.getElementById('imageUploadInput');
+
         const galleryContainer = document.getElementById('galleryContainer');
         const loadingMessage = document.getElementById('loadingMessage');
         const fullscreenOverlay = document.getElementById('fullscreenOverlay');
@@ -559,88 +539,6 @@
                 }
             });
         }
-
-
-        // File Input Change: Handle file selection and preview
-        imageUploadInput.addEventListener('change', (e) => {
-            selectedFile = e.target.files[0];
-            if (selectedFile) {
-                const reader = new FileReader();
-                reader.onload = (event) => {
-                    myimage.src = event.target.result;
-                    myimage.style.display = 'block'; // Show the image preview
-                };
-                reader.readAsDataURL(selectedFile);
-                UpProgress.textContent = `File selected: ${selectedFile.name}`;
-                UpProgress.style.color = 'black'; // Reset color
-            } else {
-                myimage.src = "";
-                myimage.style.display = 'none'; // Hide the image preview
-                UpProgress.textContent = "No file selected.";
-                UpProgress.style.color = 'gray';
-            }
-        });
-
-        // Upload Image Button: Handle the upload process
-        uploadButton.addEventListener('click', async () => {
-            if (!selectedFile) {
-                UpProgress.textContent = 'Please select an image first!';
-                UpProgress.style.color = 'red';
-                return;
-            }
-
-            const imageName = namebox.value.trim();
-            if (!imageName) {
-                UpProgress.textContent = 'Please enter an image name/caption!';
-                UpProgress.style.color = 'red';
-                return;
-            }
-
-            UpProgress.textContent = 'Starting upload...';
-            UpProgress.style.color = 'blue';
-
-            const fileName = `${Date.now()}_${selectedFile.name}`;
-            const imageStorageRef = storageRef(storage, `Images/${fileName}`);
-            const uploadTask = uploadBytesResumable(imageStorageRef, selectedFile);
-
-            uploadTask.on('state_changed',
-                (snapshot) => {
-                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                    UpProgress.textContent = `Upload is ${progress.toFixed(2)}% done`;
-                    UpProgress.style.color = 'orange';
-                },
-                (error) => {
-                    console.error('Upload failed:', error);
-                    UpProgress.textContent = `Upload failed: ${error.message}`;
-                    UpProgress.style.color = 'red';
-                },
-                async () => {
-                    try {
-                        const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-                        console.log('File available at', downloadURL);
-
-                        const newImageRef = push(databaseRef(database, 'Carpenter J'));
-                        await set(newImageRef, {
-                            name: imageName,
-                            url: downloadURL,
-                            timestamp: Date.now()
-                        });
-
-                        UpProgress.textContent = 'Upload successful!';
-                        UpProgress.style.color = 'green';
-                        namebox.value = '';
-                        myimage.src = "";
-                        myimage.style.display = 'none'; // Hide preview after successful upload
-                        selectedFile = null;
-                        imageUploadInput.value = ''; // Clear file input
-                    } catch (error) {
-                        console.error('Error getting download URL or saving to DB:', error);
-                        UpProgress.textContent = `Post-upload error: ${error.message}`;
-                        UpProgress.style.color = 'red';
-                    }
-                }
-            );
-        });
 
         // --- Image Display Functionality (from Realtime Database) ---
 
