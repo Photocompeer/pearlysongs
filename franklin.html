@@ -38,15 +38,6 @@
 
             <section id="gallery">
 
-                <section id="imgutils">
-                    Image Name <input id="namebox" type="text" placeholder="Enter image caption"> <br><br>
-                    <input type="file" id="imageUploadInput" accept="image/*">
-                    <img id="myimage" src="" alt="Selected image preview">
-                    <label id="UpProgress"></label> <br><br>
-                    <button id="select">Select Img</button>
-                    <button id='upload'>Upload Img</button>
-                </section>
-
                 <div id="galleryContainer" class="gallery-container">
                     <p id="loadingMessage">If loading takes too long, check your internet settings.</p>
                 </div>
@@ -93,12 +84,6 @@
                 // const analytics = getAnalytics(app); // Uncomment if you use analytics
 
                 // --- HTML Element References ---
-                const namebox = document.getElementById('namebox');
-                const myimage = document.getElementById('myimage'); // For preview
-                const UpProgress = document.getElementById('UpProgress');
-                const selectButton = document.getElementById('select');
-                const uploadButton = document.getElementById('upload');
-                const imageUploadInput = document.getElementById('imageUploadInput'); // Hidden file input
                 const galleryContainer = document.getElementById('galleryContainer');
                 const loadingMessage = document.getElementById('loadingMessage');
                 const fullscreenOverlay = document.getElementById('fullscreenOverlay');
@@ -119,104 +104,6 @@
                         window.scrollTo({ top: 0, behavior: 'smooth' }); // Vanilla JS smooth scroll
                     });
                 }
-
-                // 1. Select Image Button: Triggers the hidden file input
-                selectButton.addEventListener('click', () => {
-                    imageUploadInput.click(); // Programmatically click the hidden file input
-                });
-
-                // 2. File Input Change: Handle file selection and preview
-                imageUploadInput.addEventListener('change', (e) => {
-                    selectedFile = e.target.files[0]; // Get the selected file
-                    if (selectedFile) {
-                        // Display image preview
-                        const reader = new FileReader();
-                        reader.onload = (event) => {
-                            myimage.src = event.target.result;
-                        };
-                        reader.readAsDataURL(selectedFile);
-
-                        UpProgress.textContent = `File selected: ${selectedFile.name}`;
-                    } else {
-                        myimage.src = ""; // Clear preview
-                        UpProgress.textContent = "No file selected.";
-                    }
-                });
-
-                // 3. Upload Image Button: Handle the upload process
-                uploadButton.addEventListener('click', async () => {
-                    if (!selectedFile) {
-                        UpProgress.textContent = 'Please select an image first!';
-                        UpProgress.style.color = 'red';
-                        return;
-                    }
-
-                    const imageName = namebox.value.trim();
-                    if (!imageName) {
-                        UpProgress.textContent = 'Please enter an image name/caption!';
-                        UpProgress.style.color = 'red';
-                        return;
-                    }
-
-                    // Create a storage reference
-                    // Path: images/uniqueTimestamp_filename.ext
-                    const fileName = `${Date.now()}_${selectedFile.name}`; // Unique filename
-                    const imageStorageRef = storageRef(storage, `Images/${fileName}`);
-
-                    // Upload task
-                    const uploadTask = uploadBytesResumable(imageStorageRef, selectedFile);
-
-                    // Listen for state changes, errors, and completion of the upload.
-                    uploadTask.on('state_changed',
-                        (snapshot) => {
-                            // Get upload progress
-                            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                            UpProgress.textContent = `Upload is ${progress.toFixed(2)}% done`;
-                            UpProgress.style.color = 'orange';
-                            switch (snapshot.state) {
-                                case 'paused':
-                                    console.log('Upload is paused');
-                                    break;
-                                case 'running':
-                                    console.log('Upload is running');
-                                    break;
-                            }
-                        },
-                        (error) => {
-                            // Handle unsuccessful uploads
-                            console.error('Upload failed:', error);
-                            UpProgress.textContent = `Upload failed: ${error.message}`;
-                            UpProgress.style.color = 'red';
-                        },
-                        async () => {
-                            // Handle successful uploads on complete
-                            try {
-                                const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-                                console.log('File available at', downloadURL);
-
-                                // Save image metadata to Realtime Database
-                                // Using push() to generate unique keys for each image
-                                const newImageRef = push(databaseRef(database, 'Franklin')); // 'Franklin' is your database node name
-                                await set(newImageRef, {
-                                    name: imageName,
-                                    url: downloadURL,
-                                    timestamp: Date.now() // For ordering
-                                });
-
-                                UpProgress.textContent = 'Upload successful!';
-                                UpProgress.style.color = 'green';
-                                namebox.value = ''; // Clear namebox
-                                myimage.src = ""; // Clear preview
-                                selectedFile = null; // Reset selected file
-
-                            } catch (error) {
-                                console.error('Error getting download URL or saving to DB:', error);
-                                UpProgress.textContent = `Post-upload error: ${error.message}`;
-                                UpProgress.style.color = 'red';
-                            }
-                        }
-                    );
-                });
 
                 // --- Image Display Functionality (from Realtime Database) ---
 
