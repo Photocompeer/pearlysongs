@@ -1,0 +1,200 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="author" content="Abaye John Kwaku">
+            <meta name="description" content="The Funeral Announcement,Arrangement,and the Biography of Mr.A.R.K Avagah.">
+            <meta name="viewport" content="width=device-width,initial-scale=1.0">
+            <title>pearlysongs</title>
+            <link rel="stylesheet" href="franklin.css">
+                    
+                <!-- Google tag (gtag.js) -->
+                <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHZ7F4BYWR"></script>
+                <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', 'G-QHZ7F4BYWR');
+                </script>
+
+            <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+            <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            
+            <script>
+                $(document).ready(function(){
+                    $('#icon').click(function(){
+                        $('ul').toggleClass('show');
+                    });
+                });
+            </script>
+
+        </head>
+
+        <body>
+
+            <nav>
+                <label class="logo">&#128330;<span>pearlysongs</span></label>
+                <ul>
+                    <li><a class="active" href="home">Home</a></li>
+                    <li><a href="tel:+233207447161">Call: +233 (0) 207447161</a></li> 
+                    <li><a href="tel:+233207447161">Call: +233 (0) 249396764</a></li> 
+                </ul>
+                <label id="icon">
+                      <i class="fa-solid fa-bars"></i>            
+                </label>
+            </nav>
+
+            <section id="gallery">
+
+                <div id="galleryContainer" class="gallery-container">
+                    <p id="loadingMessage">If loading takes too long, check your internet settings.</p>
+                </div>
+                <div id="fullscreenOverlay">
+                    <span id="closeFullscreen">&times;</span>
+                    <img id="fullscreenImage" src="" alt="Full screen image">
+                    <div id="fullscreenCaption"></div>
+                </div>
+            </section>
+
+            <br>
+            <br>
+
+            <script type="module" src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+            <script type="module" src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js"></script>
+            <script type="module" src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js"></script>
+            <script type="module">
+                // Import the necessary functions from Firebase modules
+                import { initializeApp }
+                from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js';
+                import { getStorage, ref as storageRef, uploadBytesResumable, getDownloadURL }
+                from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js';
+                import { getDatabase, ref as databaseRef, set, onValue, push }
+                from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js';
+                import { getAnalytics }
+                from 'https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js';
+
+                 const firebaseConfig = {
+                        apiKey: "AIzaSyCHeqn6XDpPZUc46T1dl74maVruQhfYj9E",
+                        authDomain: "section-a-3bc20.firebaseapp.com",
+                        databaseURL: "https://section-a-3bc20-default-rtdb.europe-west1.firebasedatabase.app",
+                        projectId: "section-a-3bc20",
+                        storageBucket: "section-a-3bc20.firebasestorage.app",
+                        messagingSenderId: "944136450248",
+                        appId: "1:944136450248:web:72552f8accb738ebdd35fd",
+                        measurementId: "G-QS2J4SWS18"
+                    };
+
+
+                // Initialize Firebase (using modular syntax)
+                const app = initializeApp(firebaseConfig);
+                const storage = getStorage(app);
+                const database = getDatabase(app);
+                // const analytics = getAnalytics(app); // Uncomment if you use analytics
+
+                // --- HTML Element References ---
+                const galleryContainer = document.getElementById('galleryContainer');
+                const loadingMessage = document.getElementById('loadingMessage');
+                const fullscreenOverlay = document.getElementById('fullscreenOverlay');
+                const fullscreenImage = document.getElementById('fullscreenImage');
+                const fullscreenCaption = document.getElementById('fullscreenCaption');
+                const closeFullscreen = document.getElementById('closeFullscreen');
+                const backtotop = document.getElementById('backtotop'); // Ensure this element exists in HTML
+
+                // --- Global Variables ---
+                let selectedFile = null; // To hold the file selected by the user
+
+                // --- Event Listeners ---
+
+                // Back to top button (requires jQuery if you're using it, otherwise implement with vanilla JS)
+                // If you are NOT using jQuery, replace the following block with vanilla JS scrolling:
+                if (backtotop) {
+                    backtotop.addEventListener("click", function() {
+                        window.scrollTo({ top: 0, behavior: 'smooth' }); // Vanilla JS smooth scroll
+                    });
+                }
+
+                // --- Image Display Functionality (from Realtime Database) ---
+
+                function renderImageToGallery(imageUrl, imageName, key) {
+                    const figure = document.createElement('figure');
+                    figure.classList.add('gallery');
+                    figure.dataset.key = key; // Store the database key for potential future use (e.g., deletion)
+
+                    const img = document.createElement('img');
+                    img.src = imageUrl;
+                    img.alt = imageName; // Use the image name as alt text
+                    img.title = imageName; // Use the image name as title
+                    // img.width and img.height are removed here as CSS will control sizing for responsiveness
+
+                    // Add click event listener to the image for full-screen display
+                    img.addEventListener('click', () => {
+                        fullscreenImage.src = imageUrl; // Set the full-screen image source
+                        fullscreenImage.alt = imageName; // Set alt text
+                        fullscreenCaption.textContent = imageName; // Set the caption
+                        fullscreenOverlay.style.display = 'flex'; // Show the overlay (using flex for centering)
+                    });
+
+                    const figcaption = document.createElement('figcaption');
+                    figcaption.textContent = imageName;
+
+                    figure.appendChild(img);
+                    figure.appendChild(figcaption);
+
+                    galleryContainer.appendChild(figure);
+                }
+
+                // Listen for changes in the 'Franklin' node in Realtime Database
+                onValue(databaseRef(database, 'Avagah'), (snapshot) => {
+                    galleryContainer.innerHTML = ''; // Clear current gallery
+                    loadingMessage.style.display = 'none'; // Hide loading message
+
+                    if (snapshot.exists()) {
+                        const imagesData = snapshot.val();
+                        const imagesArray = [];
+
+                        // Convert object of objects to an array for easier sorting
+                        for (let key in imagesData) {
+                            imagesArray.push({
+                                key: key,
+                                ...imagesData[key]
+                            });
+                        }
+
+                        // Sort images by timestamp (newest first)
+                        imagesArray.sort((a, b) => b.timestamp - a.timestamp);
+
+                        imagesArray.forEach(image => {
+                            renderImageToGallery(image.url, image.name, image.key);
+                        });
+                    } else {
+                        galleryContainer.innerHTML = '<p>No images uploaded yet.</p>';
+                    }
+                }, (error) => {
+                    console.error('Error fetching images from Realtime Database:', error);
+                    galleryContainer.innerHTML = `<p style="color: red;">Error loading images: ${error.message}</p>`;
+                });
+
+                // Add an event listener to the close button for the fullscreen overlay
+                closeFullscreen.addEventListener('click', () => {
+                    fullscreenOverlay.style.display = 'none'; // Hide the overlay
+                });
+            </script>
+            <ol>
+                <button id="backtotop">
+                    <i class="material-icons">arrow_upward</i>
+                </button>
+            </ol>
+
+            <ol class="rsvp">
+                <h5>Contact pearlysongs : +233 (0) 249 396 764 <br><br>WhatsApp +233 (0) 207 447 161 </h5>
+            </ol>
+            <footer id="copyright">
+                <p>&copy; pearlysongs 2025</p>
+            </footer>
+            <script class="Avagah.script"></script>
+        </body>
+        </html>
